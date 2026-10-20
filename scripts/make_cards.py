@@ -19,6 +19,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "species.json"
 OUT = ROOT / "designs" / "cards"
+PREVIEW = ROOT / "designs" / "previews"
 
 # 4x6in at 300dpi -- a standard photo print size, so buyers can print at home
 # or at any drugstore kiosk without resizing.
@@ -224,18 +225,43 @@ def render(sp: dict) -> Image.Image:
     return img
 
 
+def make_preview(card: Image.Image) -> Image.Image:
+    """Downscaled, watermarked copy for the public Etsy listing image.
+
+    The listing photo is visible to anyone browsing, so it must not be a
+    usable substitute for the file people pay for. Half resolution plus a
+    repeating diagonal mark keeps it readable as a sample while making it
+    poor to print.
+    """
+    prev = card.resize((card.width // 2, card.height // 2), Image.LANCZOS)
+    mark = Image.new("RGBA", prev.size, (0, 0, 0, 0))
+    md = ImageDraw.Draw(mark)
+    f = font("sans_bold", 34)
+    text = "leafnote  •  preview"
+    step_x, step_y = 420, 240
+    for row, y in enumerate(range(-60, prev.height + step_y, step_y)):
+        offset = (row % 2) * (step_x // 2)
+        for x in range(-260 + offset, prev.width + step_x, step_x):
+            md.text((x, y), text, font=f, fill=(47, 93, 69, 46))
+    rotated = mark.rotate(30, resample=Image.BICUBIC, center=(prev.width // 2,
+                                                              prev.height // 2))
+    return Image.alpha_composite(prev.convert("RGBA"), rotated).convert("RGB")
+
+
 def main() -> int:
     data = json.loads(DATA.read_text(encoding="utf-8"))
     OUT.mkdir(parents=True, exist_ok=True)
+    PREVIEW.mkdir(parents=True, exist_ok=True)
     made = 0
     for sp in data["species"]:
         img = render(sp)
-        png = OUT / f"{sp['slug']}.png"
-        img.save(png, "PNG", dpi=(DPI, DPI))
+        img.save(OUT / f"{sp['slug']}.png", "PNG", dpi=(DPI, DPI))
         img.save(OUT / f"{sp['slug']}.pdf", "PDF", resolution=DPI)
+        make_preview(img).save(PREVIEW / f"{sp['slug']}.jpg", "JPEG", quality=86)
         made += 1
         print(f"  {sp['slug']}")
     print(f"\n{made} cards -> {OUT}")
+    print(f"{made} previews -> {PREVIEW}")
     return 0
 
 

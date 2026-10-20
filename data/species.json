@@ -1,7 +1,11 @@
 {
   "_meta": {
     "note": "Care values are deliberately conservative ranges, not single numbers. Houseplant care varies with pot size, substrate, airflow and season; a card that states '7 days' is wrong for most readers. Toxicity flags follow ASPGA/ASPCA-style classification for cats and dogs and should be re-verified before any claim is printed.",
-    "toxicity_values": ["toxic", "non-toxic", "mildly-toxic"],
+    "toxicity_values": [
+      "toxic",
+      "non-toxic",
+      "mildly-toxic"
+    ],
     "version": 1
   },
   "species": [
@@ -9,7 +13,10 @@
       "slug": "monstera-deliciosa",
       "common": "Monstera",
       "botanical": "Monstera deliciosa",
-      "aka": ["Swiss Cheese Plant", "Split-Leaf Philodendron"],
+      "aka": [
+        "Swiss Cheese Plant",
+        "Split-Leaf Philodendron"
+      ],
       "difficulty": "easy",
       "light": "Bright indirect. Tolerates a few hours of soft morning sun; harsh afternoon sun scorches leaves.",
       "light_short": "Bright indirect",
@@ -22,9 +29,21 @@
       "toxic_pets": "toxic",
       "toxic_note": "Insoluble calcium oxalates. Causes oral irritation, drooling and vomiting if chewed.",
       "problems": [
-        {"sign": "Leaves stay whole with no splits", "cause": "Not enough light, or plant is still juvenile", "fix": "Move closer to a bright window. Splits develop with maturity."},
-        {"sign": "Yellowing lower leaves", "cause": "Overwatering", "fix": "Let the top layer dry fully before the next drink. Check that drainage is not blocked."},
-        {"sign": "Brown crispy leaf edges", "cause": "Dry air or underwatering", "fix": "Water more consistently; group with other plants to raise local humidity."}
+        {
+          "sign": "Leaves stay whole with no splits",
+          "cause": "Not enough light, or plant is still juvenile",
+          "fix": "Move closer to a bright window. Splits develop with maturity."
+        },
+        {
+          "sign": "Yellowing lower leaves",
+          "cause": "Overwatering",
+          "fix": "Let the top layer dry fully before the next drink. Check that drainage is not blocked."
+        },
+        {
+          "sign": "Brown crispy leaf edges",
+          "cause": "Dry air or underwatering",
+          "fix": "Water more consistently; group with other plants to raise local humidity."
+        }
       ],
       "note": "Aerial roots are normal and healthy. Tuck them into the pot or leave them; do not cut them off."
     },
@@ -32,7 +51,10 @@
       "slug": "monstera-adansonii",
       "common": "Swiss Cheese Vine",
       "botanical": "Monstera adansonii",
-      "aka": ["Monkey Mask", "Adanson's Monstera"],
+      "aka": [
+        "Monkey Mask",
+        "Adanson's Monstera"
+      ],
       "difficulty": "easy",
       "light": "Bright indirect. No direct sun.",
       "light_short": "Bright indirect",
@@ -45,8 +67,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Insoluble calcium oxalates. Oral irritation and vomiting if chewed.",
       "problems": [
-        {"sign": "Long gaps between leaves", "cause": "Insufficient light", "fix": "Move brighter. Leggy growth will not fill back in — prune and propagate instead."},
-        {"sign": "Crispy edges on new leaves", "cause": "Low humidity", "fix": "Raise ambient humidity; avoid placing near heating vents."}
+        {
+          "sign": "Long gaps between leaves",
+          "cause": "Insufficient light",
+          "fix": "Move brighter. Leggy growth will not fill back in — prune and propagate instead."
+        },
+        {
+          "sign": "Crispy edges on new leaves",
+          "cause": "Low humidity",
+          "fix": "Raise ambient humidity; avoid placing near heating vents."
+        }
       ],
       "note": "Give it something to climb. Vining up a pole produces larger leaves with more holes than trailing down."
     },
@@ -54,7 +84,10 @@
       "slug": "golden-pothos",
       "common": "Golden Pothos",
       "botanical": "Epipremnum aureum",
-      "aka": ["Devil's Ivy", "Money Plant"],
+      "aka": [
+        "Devil's Ivy",
+        "Money Plant"
+      ],
       "difficulty": "easy",
       "light": "Adapts from low to bright indirect. Variegation fades in low light.",
       "light_short": "Low to bright indirect",
@@ -67,8 +100,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Insoluble calcium oxalates. Oral irritation, drooling, vomiting if chewed.",
       "problems": [
-        {"sign": "Variegation turning solid green", "cause": "Too little light", "fix": "Move to brighter indirect light. Prune back to a variegated node."},
-        {"sign": "Black stems, mushy base", "cause": "Root rot from overwatering", "fix": "Unpot, cut away rotted roots, repot in fresh dry mix. Propagate healthy cuttings as insurance."}
+        {
+          "sign": "Variegation turning solid green",
+          "cause": "Too little light",
+          "fix": "Move to brighter indirect light. Prune back to a variegated node."
+        },
+        {
+          "sign": "Black stems, mushy base",
+          "cause": "Root rot from overwatering",
+          "fix": "Unpot, cut away rotted roots, repot in fresh dry mix. Propagate healthy cuttings as insurance."
+        }
       ],
       "note": "The most forgiving plant on this list. If you kill a pothos, the cause is almost always too much water, not too little."
     },
@@ -76,7 +117,10 @@
       "slug": "snake-plant",
       "common": "Snake Plant",
       "botanical": "Dracaena trifasciata",
-      "aka": ["Sansevieria", "Mother-in-Law's Tongue"],
+      "aka": [
+        "Sansevieria",
+        "Mother-in-Law's Tongue"
+      ],
       "difficulty": "easy",
       "light": "Anything from low light to full sun. Grows fastest in bright indirect.",
       "light_short": "Low to full sun",
@@ -87,11 +131,18 @@
       "temp_f": "60-85",
       "feeding": "Succulent feed twice during the growing season at most.",
       "toxic_pets": "toxic",
-      "toxic_note": "Saponins. Causes nausea, vomiting and diarrhoea if eaten."
-      ,
+      "toxic_note": "Saponins. Causes nausea, vomiting and diarrhoea if eaten.",
       "problems": [
-        {"sign": "Soft, mushy leaf bases", "cause": "Overwatering — the most common way this plant dies", "fix": "Stop watering. Remove affected leaves at the base. Repot into dry gritty mix."},
-        {"sign": "Wrinkled, curling leaves", "cause": "Genuinely underwatered", "fix": "Water thoroughly once; leaves plump up over several days."}
+        {
+          "sign": "Soft, mushy leaf bases",
+          "cause": "Overwatering — the most common way this plant dies",
+          "fix": "Stop watering. Remove affected leaves at the base. Repot into dry gritty mix."
+        },
+        {
+          "sign": "Wrinkled, curling leaves",
+          "cause": "Genuinely underwatered",
+          "fix": "Water thoroughly once; leaves plump up over several days."
+        }
       ],
       "note": "In winter it may need water only once a month. When in doubt, wait another week."
     },
@@ -99,7 +150,10 @@
       "slug": "zz-plant",
       "common": "ZZ Plant",
       "botanical": "Zamioculcas zamiifolia",
-      "aka": ["Zanzibar Gem", "Eternity Plant"],
+      "aka": [
+        "Zanzibar Gem",
+        "Eternity Plant"
+      ],
       "difficulty": "easy",
       "light": "Low to bright indirect. One of the few genuinely low-light-tolerant plants.",
       "light_short": "Low to bright indirect",
@@ -112,8 +166,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Insoluble calcium oxalates. Oral irritation and vomiting if chewed.",
       "problems": [
-        {"sign": "Yellowing stalks from the base", "cause": "Overwatering", "fix": "Stop watering entirely until the soil is bone dry. Check rhizomes for soft spots."},
-        {"sign": "No new growth for months", "cause": "Normal — it is a slow grower", "fix": "Nothing. Brighter light speeds it up slightly."}
+        {
+          "sign": "Yellowing stalks from the base",
+          "cause": "Overwatering",
+          "fix": "Stop watering entirely until the soil is bone dry. Check rhizomes for soft spots."
+        },
+        {
+          "sign": "No new growth for months",
+          "cause": "Normal — it is a slow grower",
+          "fix": "Nothing. Brighter light speeds it up slightly."
+        }
       ],
       "note": "The best plant for a dark office or a forgetful owner. Almost impossible to underwater."
     },
@@ -121,7 +183,9 @@
       "slug": "fiddle-leaf-fig",
       "common": "Fiddle Leaf Fig",
       "botanical": "Ficus lyrata",
-      "aka": ["Banjo Fig"],
+      "aka": [
+        "Banjo Fig"
+      ],
       "difficulty": "tricky",
       "light": "Bright light, including some direct morning sun. Needs more light than most people give it.",
       "light_short": "Bright, some direct",
@@ -134,8 +198,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Ficus sap irritates skin, mouth and gut. Causes vomiting and drooling if chewed.",
       "problems": [
-        {"sign": "Brown spots spreading from leaf edges", "cause": "Usually overwatering or root rot", "fix": "Check roots. Let it dry further between waterings."},
-        {"sign": "Dropping leaves suddenly", "cause": "Shock from being moved, a draft, or a temperature swing", "fix": "Pick one bright spot and leave it there. It dislikes being relocated."}
+        {
+          "sign": "Brown spots spreading from leaf edges",
+          "cause": "Usually overwatering or root rot",
+          "fix": "Check roots. Let it dry further between waterings."
+        },
+        {
+          "sign": "Dropping leaves suddenly",
+          "cause": "Shock from being moved, a draft, or a temperature swing",
+          "fix": "Pick one bright spot and leave it there. It dislikes being relocated."
+        }
       ],
       "note": "The hardest plant here. It wants one bright position, a consistent watering rhythm, and no drafts. Pick its spot carefully and then stop fussing."
     },
@@ -143,7 +215,10 @@
       "slug": "rubber-plant",
       "common": "Rubber Plant",
       "botanical": "Ficus elastica",
-      "aka": ["Rubber Tree", "Rubber Fig"],
+      "aka": [
+        "Rubber Tree",
+        "Rubber Fig"
+      ],
       "difficulty": "easy",
       "light": "Bright indirect. Variegated forms need more light than plain green.",
       "light_short": "Bright indirect",
@@ -156,8 +231,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Milky latex sap. Irritates mouth and gut; causes vomiting if chewed.",
       "problems": [
-        {"sign": "Lower leaves yellow and drop", "cause": "Overwatering or a cold draft", "fix": "Let the soil dry further; move away from drafty windows and doors."},
-        {"sign": "Dusty, dull leaves", "cause": "Dust buildup blocks light", "fix": "Wipe leaves with a damp cloth monthly. Makes a visible difference."}
+        {
+          "sign": "Lower leaves yellow and drop",
+          "cause": "Overwatering or a cold draft",
+          "fix": "Let the soil dry further; move away from drafty windows and doors."
+        },
+        {
+          "sign": "Dusty, dull leaves",
+          "cause": "Dust buildup blocks light",
+          "fix": "Wipe leaves with a damp cloth monthly. Makes a visible difference."
+        }
       ],
       "note": "Far more forgiving than its cousin the fiddle leaf fig, and nearly as striking."
     },
@@ -165,7 +248,9 @@
       "slug": "peace-lily",
       "common": "Peace Lily",
       "botanical": "Spathiphyllum wallisii",
-      "aka": ["Spath"],
+      "aka": [
+        "Spath"
+      ],
       "difficulty": "easy",
       "light": "Low to bright indirect. Blooms more in brighter light; survives in dim corners.",
       "light_short": "Low to bright indirect",
@@ -178,9 +263,21 @@
       "toxic_pets": "toxic",
       "toxic_note": "Insoluble calcium oxalates. Oral irritation, drooling, difficulty swallowing. Not a true lily and not kidney-toxic to cats, unlike Lilium.",
       "problems": [
-        {"sign": "Dramatic full wilt", "cause": "Underwatered", "fix": "Water thoroughly. It usually recovers completely within a few hours."},
-        {"sign": "Brown leaf tips", "cause": "Tap water minerals, fluoride, or dry air", "fix": "Try filtered or left-out water; raise humidity."},
-        {"sign": "No flowers", "cause": "Too little light", "fix": "Move to brighter indirect light."}
+        {
+          "sign": "Dramatic full wilt",
+          "cause": "Underwatered",
+          "fix": "Water thoroughly. It usually recovers completely within a few hours."
+        },
+        {
+          "sign": "Brown leaf tips",
+          "cause": "Tap water minerals, fluoride, or dry air",
+          "fix": "Try filtered or left-out water; raise humidity."
+        },
+        {
+          "sign": "No flowers",
+          "cause": "Too little light",
+          "fix": "Move to brighter indirect light."
+        }
       ],
       "note": "Its wilting is a useful signal, not a crisis — this is the one plant that reliably tells you when it is thirsty."
     },
@@ -188,7 +285,11 @@
       "slug": "pilea-peperomioides",
       "common": "Chinese Money Plant",
       "botanical": "Pilea peperomioides",
-      "aka": ["Pancake Plant", "UFO Plant", "Missionary Plant"],
+      "aka": [
+        "Pancake Plant",
+        "UFO Plant",
+        "Missionary Plant"
+      ],
       "difficulty": "easy",
       "light": "Bright indirect. Rotate weekly or it leans hard toward the light.",
       "light_short": "Bright indirect",
@@ -201,8 +302,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Leaning heavily to one side", "cause": "Phototropism — normal", "fix": "Rotate a quarter turn weekly."},
-        {"sign": "Pale, cupping leaves", "cause": "Too much direct sun", "fix": "Move back from the glass into indirect light."}
+        {
+          "sign": "Leaning heavily to one side",
+          "cause": "Phototropism — normal",
+          "fix": "Rotate a quarter turn weekly."
+        },
+        {
+          "sign": "Pale, cupping leaves",
+          "cause": "Too much direct sun",
+          "fix": "Move back from the glass into indirect light."
+        }
       ],
       "note": "Produces pups at the base that can be separated and potted. One plant becomes many within a year."
     },
@@ -210,7 +319,10 @@
       "slug": "string-of-hearts",
       "common": "String of Hearts",
       "botanical": "Ceropegia woodii",
-      "aka": ["Rosary Vine", "Chain of Hearts"],
+      "aka": [
+        "Rosary Vine",
+        "Chain of Hearts"
+      ],
       "difficulty": "easy",
       "light": "Bright indirect to some direct sun. More light means tighter spacing and stronger colour.",
       "light_short": "Bright, some direct",
@@ -223,8 +335,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Long bare stretches of vine", "cause": "Too little light", "fix": "Move brighter. Trim long bare sections and lay cuttings on soil to root."},
-        {"sign": "Mushy leaves near the base", "cause": "Overwatering", "fix": "Let it dry out completely; reduce frequency."}
+        {
+          "sign": "Long bare stretches of vine",
+          "cause": "Too little light",
+          "fix": "Move brighter. Trim long bare sections and lay cuttings on soil to root."
+        },
+        {
+          "sign": "Mushy leaves near the base",
+          "cause": "Overwatering",
+          "fix": "Let it dry out completely; reduce frequency."
+        }
       ],
       "note": "Hang it high. Vines reach several feet and the heart shape only reads properly when it trails."
     },
@@ -232,7 +352,9 @@
       "slug": "philodendron-brasil",
       "common": "Philodendron Brasil",
       "botanical": "Philodendron hederaceum 'Brasil'",
-      "aka": ["Heartleaf Philodendron Brasil"],
+      "aka": [
+        "Heartleaf Philodendron Brasil"
+      ],
       "difficulty": "easy",
       "light": "Medium to bright indirect. Variegation needs light to hold.",
       "light_short": "Medium to bright indirect",
@@ -245,8 +367,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Insoluble calcium oxalates. Oral irritation and vomiting if chewed.",
       "problems": [
-        {"sign": "New leaves all solid green", "cause": "Not enough light", "fix": "Move brighter; cut back to a well-variegated node."},
-        {"sign": "Sparse, stringy growth", "cause": "Low light", "fix": "Brighter position and pinch the tips to encourage branching."}
+        {
+          "sign": "New leaves all solid green",
+          "cause": "Not enough light",
+          "fix": "Move brighter; cut back to a well-variegated node."
+        },
+        {
+          "sign": "Sparse, stringy growth",
+          "cause": "Low light",
+          "fix": "Brighter position and pinch the tips to encourage branching."
+        }
       ],
       "note": "Nearly as tough as pothos but with better colour. Pinch growing tips to keep it full rather than stringy."
     },
@@ -254,7 +384,9 @@
       "slug": "calathea-orbifolia",
       "common": "Calathea Orbifolia",
       "botanical": "Goeppertia orbifolia",
-      "aka": ["Prayer Plant family"],
+      "aka": [
+        "Prayer Plant family"
+      ],
       "difficulty": "tricky",
       "light": "Medium indirect. Direct sun bleaches the silver banding.",
       "light_short": "Medium indirect",
@@ -267,8 +399,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs. One of the safest statement plants for pet homes.",
       "problems": [
-        {"sign": "Crispy brown edges", "cause": "Low humidity or hard tap water", "fix": "Raise humidity above 60%; switch to filtered water."},
-        {"sign": "Curling leaves", "cause": "Underwatered or too dry an atmosphere", "fix": "Water and raise humidity together."}
+        {
+          "sign": "Crispy brown edges",
+          "cause": "Low humidity or hard tap water",
+          "fix": "Raise humidity above 60%; switch to filtered water."
+        },
+        {
+          "sign": "Curling leaves",
+          "cause": "Underwatered or too dry an atmosphere",
+          "fix": "Water and raise humidity together."
+        }
       ],
       "note": "Demanding about humidity and water quality. Genuinely pet-safe, which is why people persist with it."
     },
@@ -276,7 +416,10 @@
       "slug": "prayer-plant",
       "common": "Prayer Plant",
       "botanical": "Maranta leuconeura",
-      "aka": ["Herringbone Plant", "Rabbit's Foot"],
+      "aka": [
+        "Herringbone Plant",
+        "Rabbit's Foot"
+      ],
       "difficulty": "moderate",
       "light": "Medium indirect. Avoid direct sun.",
       "light_short": "Medium indirect",
@@ -289,8 +432,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Leaves folded up and staying up", "cause": "Normal at night; if constant, it is thirsty or the air is too dry", "fix": "Check soil moisture and humidity."},
-        {"sign": "Faded pattern", "cause": "Too much light", "fix": "Move further from the window."}
+        {
+          "sign": "Leaves folded up and staying up",
+          "cause": "Normal at night; if constant, it is thirsty or the air is too dry",
+          "fix": "Check soil moisture and humidity."
+        },
+        {
+          "sign": "Faded pattern",
+          "cause": "Too much light",
+          "fix": "Move further from the window."
+        }
       ],
       "note": "Leaves fold upward at night and open in the morning. The movement is normal and worth watching for."
     },
@@ -298,7 +449,10 @@
       "slug": "alocasia-polly",
       "common": "Alocasia Polly",
       "botanical": "Alocasia x amazonica 'Polly'",
-      "aka": ["African Mask Plant", "Amazonian Elephant Ear"],
+      "aka": [
+        "African Mask Plant",
+        "Amazonian Elephant Ear"
+      ],
       "difficulty": "tricky",
       "light": "Bright indirect. No direct sun.",
       "light_short": "Bright indirect",
@@ -309,11 +463,18 @@
       "temp_f": "65-80",
       "feeding": "Dilute feed monthly in spring and summer only.",
       "toxic_pets": "toxic",
-      "toxic_note": "High insoluble calcium oxalate content. Significant oral irritation, drooling and swelling if chewed."
-      ,
+      "toxic_note": "High insoluble calcium oxalate content. Significant oral irritation, drooling and swelling if chewed.",
       "problems": [
-        {"sign": "Dropping all its leaves in autumn", "cause": "Often natural dormancy, not death", "fix": "Reduce water, keep the corm warm and barely moist, wait for spring."},
-        {"sign": "Fine webbing under leaves", "cause": "Spider mites — Alocasia are highly prone", "fix": "Rinse leaves, treat with insecticidal soap weekly for three weeks, raise humidity."}
+        {
+          "sign": "Dropping all its leaves in autumn",
+          "cause": "Often natural dormancy, not death",
+          "fix": "Reduce water, keep the corm warm and barely moist, wait for spring."
+        },
+        {
+          "sign": "Fine webbing under leaves",
+          "cause": "Spider mites — Alocasia are highly prone",
+          "fix": "Rinse leaves, treat with insecticidal soap weekly for three weeks, raise humidity."
+        }
       ],
       "note": "Check the undersides of leaves weekly. Spider mites find this plant faster than any other on the list."
     },
@@ -321,7 +482,9 @@
       "slug": "birds-nest-fern",
       "common": "Bird's Nest Fern",
       "botanical": "Asplenium nidus",
-      "aka": ["Nest Fern"],
+      "aka": [
+        "Nest Fern"
+      ],
       "difficulty": "easy",
       "light": "Low to medium indirect. Direct sun scorches the fronds.",
       "light_short": "Low to medium indirect",
@@ -334,8 +497,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Brown crispy frond edges", "cause": "Dry air", "fix": "Raise humidity; move away from vents and radiators."},
-        {"sign": "Rot at the centre of the rosette", "cause": "Water poured into the crown", "fix": "Always water the soil around the edge of the pot instead."}
+        {
+          "sign": "Brown crispy frond edges",
+          "cause": "Dry air",
+          "fix": "Raise humidity; move away from vents and radiators."
+        },
+        {
+          "sign": "Rot at the centre of the rosette",
+          "cause": "Water poured into the crown",
+          "fix": "Always water the soil around the edge of the pot instead."
+        }
       ],
       "note": "The easiest fern to keep alive indoors, and safe around pets. Never water into the middle."
     },
@@ -343,7 +514,10 @@
       "slug": "spider-plant",
       "common": "Spider Plant",
       "botanical": "Chlorophytum comosum",
-      "aka": ["Airplane Plant", "Ribbon Plant"],
+      "aka": [
+        "Airplane Plant",
+        "Ribbon Plant"
+      ],
       "difficulty": "easy",
       "light": "Bright indirect. Tolerates medium light.",
       "light_short": "Bright indirect",
@@ -356,8 +530,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not toxic to cats or dogs. Cats are often drawn to chewing it; this causes no poisoning, though large amounts may upset the stomach.",
       "problems": [
-        {"sign": "Brown leaf tips", "cause": "Fluoride or chlorine in tap water", "fix": "Use filtered water or leave tap water out overnight."},
-        {"sign": "No babies forming", "cause": "Too little light, or pot too large", "fix": "Brighter light; spider plants pup more readily when slightly root-bound."}
+        {
+          "sign": "Brown leaf tips",
+          "cause": "Fluoride or chlorine in tap water",
+          "fix": "Use filtered water or leave tap water out overnight."
+        },
+        {
+          "sign": "No babies forming",
+          "cause": "Too little light, or pot too large",
+          "fix": "Brighter light; spider plants pup more readily when slightly root-bound."
+        }
       ],
       "note": "Pet-safe and prolific. The plantlets root in water in about two weeks, which makes it the best plant to give away."
     },
@@ -365,7 +547,10 @@
       "slug": "aloe-vera",
       "common": "Aloe Vera",
       "botanical": "Aloe barbadensis miller",
-      "aka": ["True Aloe", "Medicinal Aloe"],
+      "aka": [
+        "True Aloe",
+        "Medicinal Aloe"
+      ],
       "difficulty": "easy",
       "light": "Bright light with some direct sun.",
       "light_short": "Bright, some direct",
@@ -378,8 +563,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Saponins and anthraquinones in the leaf skin and latex. Causes vomiting, diarrhoea and lethargy if eaten by cats or dogs.",
       "problems": [
-        {"sign": "Flat, splaying leaves", "cause": "Too little light", "fix": "Move to the brightest spot available."},
-        {"sign": "Soft, translucent, mushy leaves", "cause": "Overwatering", "fix": "Stop watering. Remove affected leaves. Repot in gritty dry mix if the base is soft."}
+        {
+          "sign": "Flat, splaying leaves",
+          "cause": "Too little light",
+          "fix": "Move to the brightest spot available."
+        },
+        {
+          "sign": "Soft, translucent, mushy leaves",
+          "cause": "Overwatering",
+          "fix": "Stop watering. Remove affected leaves. Repot in gritty dry mix if the base is soft."
+        }
       ],
       "note": "Toxic to pets despite being a household remedy for humans. Worth stating plainly on the card."
     },
@@ -387,7 +580,10 @@
       "slug": "jade-plant",
       "common": "Jade Plant",
       "botanical": "Crassula ovata",
-      "aka": ["Money Tree", "Lucky Plant"],
+      "aka": [
+        "Money Tree",
+        "Lucky Plant"
+      ],
       "difficulty": "easy",
       "light": "Bright light with several hours of direct sun.",
       "light_short": "Bright, direct sun",
@@ -400,8 +596,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Toxic to cats and dogs. Causes vomiting, incoordination and lethargy. The toxic principle is not fully identified.",
       "problems": [
-        {"sign": "Dropping leaves at a touch", "cause": "Usually overwatering; sometimes a sudden move", "fix": "Let it dry out thoroughly and reduce frequency."},
-        {"sign": "Stretched, leaning stems", "cause": "Not enough light", "fix": "Move to direct sun. Prune leggy growth; cuttings root easily."}
+        {
+          "sign": "Dropping leaves at a touch",
+          "cause": "Usually overwatering; sometimes a sudden move",
+          "fix": "Let it dry out thoroughly and reduce frequency."
+        },
+        {
+          "sign": "Stretched, leaning stems",
+          "cause": "Not enough light",
+          "fix": "Move to direct sun. Prune leggy growth; cuttings root easily."
+        }
       ],
       "note": "Can live for decades and be pruned like a bonsai. Treat it as a sun plant, not a shelf plant."
     },
@@ -409,7 +613,10 @@
       "slug": "hoya-carnosa",
       "common": "Hoya Carnosa",
       "botanical": "Hoya carnosa",
-      "aka": ["Wax Plant", "Porcelain Flower"],
+      "aka": [
+        "Wax Plant",
+        "Porcelain Flower"
+      ],
       "difficulty": "easy",
       "light": "Bright indirect with some direct sun. Light drives flowering.",
       "light_short": "Bright, some direct",
@@ -422,8 +629,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Never flowers", "cause": "Too little light, or the old flower spurs were cut off", "fix": "More light. Never remove the short leafless spurs — flowers rebloom from them."},
-        {"sign": "Wrinkled leaves", "cause": "Underwatered or root-bound", "fix": "Water thoroughly; check whether roots fill the pot."}
+        {
+          "sign": "Never flowers",
+          "cause": "Too little light, or the old flower spurs were cut off",
+          "fix": "More light. Never remove the short leafless spurs — flowers rebloom from them."
+        },
+        {
+          "sign": "Wrinkled leaves",
+          "cause": "Underwatered or root-bound",
+          "fix": "Water thoroughly; check whether roots fill the pot."
+        }
       ],
       "note": "Do not deadhead. Flowers return from the same woody spurs year after year, and cutting them off costs you next season's blooms."
     },
@@ -431,7 +646,11 @@
       "slug": "anthurium",
       "common": "Anthurium",
       "botanical": "Anthurium andraeanum",
-      "aka": ["Flamingo Flower", "Laceleaf", "Painter's Palette"],
+      "aka": [
+        "Flamingo Flower",
+        "Laceleaf",
+        "Painter's Palette"
+      ],
       "difficulty": "moderate",
       "light": "Bright indirect. No direct sun.",
       "light_short": "Bright indirect",
@@ -444,8 +663,16 @@
       "toxic_pets": "toxic",
       "toxic_note": "Insoluble calcium oxalates. Oral irritation, drooling and swelling if chewed.",
       "problems": [
-        {"sign": "Green rather than red blooms", "cause": "Normal ageing of the spathe, or too little light", "fix": "Nothing if the bloom is old. Otherwise increase light."},
-        {"sign": "Yellowing leaves", "cause": "Overwatering in too dense a substrate", "fix": "Repot into a chunkier, barkier mix."}
+        {
+          "sign": "Green rather than red blooms",
+          "cause": "Normal ageing of the spathe, or too little light",
+          "fix": "Nothing if the bloom is old. Otherwise increase light."
+        },
+        {
+          "sign": "Yellowing leaves",
+          "cause": "Overwatering in too dense a substrate",
+          "fix": "Repot into a chunkier, barkier mix."
+        }
       ],
       "note": "The red 'flower' is a modified leaf and lasts weeks. Plant it in bark, not dense soil — most Anthurium deaths are a potting mix problem."
     },
@@ -453,7 +680,9 @@
       "slug": "parlor-palm",
       "common": "Parlor Palm",
       "botanical": "Chamaedorea elegans",
-      "aka": ["Neanthe Bella Palm"],
+      "aka": [
+        "Neanthe Bella Palm"
+      ],
       "difficulty": "easy",
       "light": "Low to medium indirect. One of the best true low-light plants.",
       "light_short": "Low to medium indirect",
@@ -466,8 +695,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Brown frond tips", "cause": "Dry air or fluoride in tap water", "fix": "Raise humidity; use filtered water. Trim tips with scissors."},
-        {"sign": "Fine webbing between fronds", "cause": "Spider mites, common in dry air", "fix": "Rinse thoroughly, treat with insecticidal soap, raise humidity."}
+        {
+          "sign": "Brown frond tips",
+          "cause": "Dry air or fluoride in tap water",
+          "fix": "Raise humidity; use filtered water. Trim tips with scissors."
+        },
+        {
+          "sign": "Fine webbing between fronds",
+          "cause": "Spider mites, common in dry air",
+          "fix": "Rinse thoroughly, treat with insecticidal soap, raise humidity."
+        }
       ],
       "note": "Pet-safe, genuinely tolerates low light, and stays a manageable size. The best palm for a dim room."
     },
@@ -475,7 +712,10 @@
       "slug": "peperomia-obtusifolia",
       "common": "Baby Rubber Plant",
       "botanical": "Peperomia obtusifolia",
-      "aka": ["Pepper Face", "American Rubber Plant"],
+      "aka": [
+        "Pepper Face",
+        "American Rubber Plant"
+      ],
       "difficulty": "easy",
       "light": "Medium to bright indirect.",
       "light_short": "Medium to bright indirect",
@@ -488,8 +728,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Dropping leaves", "cause": "Overwatering", "fix": "Let it dry out further between waterings."},
-        {"sign": "Leggy, sparse growth", "cause": "Too little light", "fix": "Brighter indirect light; pinch tips to encourage bushiness."}
+        {
+          "sign": "Dropping leaves",
+          "cause": "Overwatering",
+          "fix": "Let it dry out further between waterings."
+        },
+        {
+          "sign": "Leggy, sparse growth",
+          "cause": "Too little light",
+          "fix": "Brighter indirect light; pinch tips to encourage bushiness."
+        }
       ],
       "note": "Compact, pet-safe and very hard to kill. An excellent desk plant and a good first plant for a cat household."
     },
@@ -497,7 +745,9 @@
       "slug": "watermelon-peperomia",
       "common": "Watermelon Peperomia",
       "botanical": "Peperomia argyreia",
-      "aka": ["Watermelon Begonia"],
+      "aka": [
+        "Watermelon Begonia"
+      ],
       "difficulty": "easy",
       "light": "Medium to bright indirect. Direct sun fades the striping.",
       "light_short": "Medium to bright indirect",
@@ -510,8 +760,16 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Drooping petioles", "cause": "Thirsty, or overwatered — check the soil before acting", "fix": "If dry, water. If wet, let it dry out fully."},
-        {"sign": "Faded, washed-out pattern", "cause": "Too much direct light", "fix": "Move back from the window."}
+        {
+          "sign": "Drooping petioles",
+          "cause": "Thirsty, or overwatered — check the soil before acting",
+          "fix": "If dry, water. If wet, let it dry out fully."
+        },
+        {
+          "sign": "Faded, washed-out pattern",
+          "cause": "Too much direct light",
+          "fix": "Move back from the window."
+        }
       ],
       "note": "Leaf cuttings with a short stalk root readily in water. Pet-safe and compact."
     },
@@ -519,7 +777,9 @@
       "slug": "air-plant",
       "common": "Air Plant",
       "botanical": "Tillandsia ionantha",
-      "aka": ["Tillandsia"],
+      "aka": [
+        "Tillandsia"
+      ],
       "difficulty": "moderate",
       "light": "Bright indirect. No soil, no pot.",
       "light_short": "Bright indirect",
@@ -532,10 +792,538 @@
       "toxic_pets": "non-toxic",
       "toxic_note": "Not known to be toxic to cats or dogs.",
       "problems": [
-        {"sign": "Rotting, falling apart at the base", "cause": "Water trapped in the centre after soaking", "fix": "Always dry upside down with good airflow. Never leave it sitting wet in a closed terrarium."},
-        {"sign": "Brown crispy leaf tips", "cause": "Not enough water", "fix": "Soak more often; mist between soaks."}
+        {
+          "sign": "Rotting, falling apart at the base",
+          "cause": "Water trapped in the centre after soaking",
+          "fix": "Always dry upside down with good airflow. Never leave it sitting wet in a closed terrarium."
+        },
+        {
+          "sign": "Brown crispy leaf tips",
+          "cause": "Not enough water",
+          "fix": "Soak more often; mist between soaks."
+        }
       ],
       "note": "The drying step matters more than the watering step. Rot from trapped water kills more air plants than drought does."
+    },
+    {
+      "slug": "marble-queen-pothos",
+      "common": "Marble Queen Pothos",
+      "botanical": "Epipremnum aureum Marble Queen",
+      "aka": [
+        "Variegated Pothos"
+      ],
+      "difficulty": "easy",
+      "light": "Bright indirect. Needs more light than plain green pothos to hold its white variegation.",
+      "light_short": "Bright indirect",
+      "water": "Let the top half of the pot dry out. Grows slower than golden pothos, so it drinks less.",
+      "water_short": "Let dry halfway",
+      "humidity": "Any. Unfussy.",
+      "soil": "Standard potting mix with added perlite.",
+      "temp_f": "60-85",
+      "feeding": "Dilute balanced feed every 6-8 weeks in the growing season.",
+      "toxic_pets": "toxic",
+      "toxic_note": "Insoluble calcium oxalates. Oral irritation, drooling and vomiting if chewed.",
+      "problems": [
+        {
+          "sign": "New leaves coming in mostly green",
+          "cause": "Not enough light to support the white sections",
+          "fix": "Move brighter. Prune back to a well-marbled node."
+        },
+        {
+          "sign": "Brown crisping on the white parts first",
+          "cause": "Sun scorch - white tissue burns before green does",
+          "fix": "Pull back from direct sun into bright indirect."
+        }
+      ],
+      "note": "The white parts carry no chlorophyll, so this grows noticeably slower than golden pothos. That is normal, not a problem."
+    },
+    {
+      "slug": "bird-of-paradise",
+      "common": "Bird of Paradise",
+      "botanical": "Strelitzia nicolai",
+      "aka": [
+        "Giant White Bird of Paradise"
+      ],
+      "difficulty": "moderate",
+      "light": "The brightest spot you have, including several hours of direct sun. It is a full-sun plant outdoors.",
+      "light_short": "Bright, direct sun",
+      "water": "Water thoroughly when the top 2 inches dry. Large leaves move a lot of water in summer.",
+      "water_short": "Top 2in dry",
+      "humidity": "40-60%.",
+      "soil": "Rich, well-draining potting mix.",
+      "temp_f": "65-85",
+      "feeding": "Balanced feed monthly spring through summer. It is a heavy feeder for a houseplant.",
+      "toxic_pets": "toxic",
+      "toxic_note": "Toxic to cats and dogs. The seeds and fruit are the worst part. Causes vomiting and drowsiness.",
+      "problems": [
+        {
+          "sign": "Leaves splitting along the sides",
+          "cause": "Completely normal - it is how the plant survives wind",
+          "fix": "Nothing. Splits are not damage and cannot be prevented."
+        },
+        {
+          "sign": "No new growth, pale leaves",
+          "cause": "Not enough light. This is the usual indoor failure.",
+          "fix": "Move to the brightest window in the house. It cannot thrive in medium light."
+        }
+      ],
+      "note": "Indoor plants rarely flower - they typically need several years, a lot of direct sun, and to be root-bound. Treat it as a foliage plant."
+    },
+    {
+      "slug": "philodendron-birkin",
+      "common": "Philodendron Birkin",
+      "botanical": "Philodendron Birkin",
+      "aka": [
+        "White Wave Philodendron"
+      ],
+      "difficulty": "easy",
+      "light": "Bright indirect. The white pinstripes fade without it.",
+      "light_short": "Bright indirect",
+      "water": "When the top inch is dry.",
+      "water_short": "Top 1in dry",
+      "humidity": "50%+.",
+      "soil": "Airy mix with bark and perlite.",
+      "temp_f": "65-80",
+      "feeding": "Balanced feed monthly in the growing season.",
+      "toxic_pets": "toxic",
+      "toxic_note": "Insoluble calcium oxalates. Oral irritation and vomiting if chewed.",
+      "problems": [
+        {
+          "sign": "Reverting to plain green leaves",
+          "cause": "Low light, or natural instability - Birkin is a mutation and can revert",
+          "fix": "Increase light. Cut the reverted stem back below the green growth."
+        },
+        {
+          "sign": "A fully white leaf that then dies",
+          "cause": "No chlorophyll in that leaf, so it cannot sustain itself",
+          "fix": "Normal. Remove it once it yellows; the plant is fine."
+        }
+      ],
+      "note": "Birkin is a mutation, so no two leaves stripe identically and occasional reversion is built in rather than something you did wrong."
+    },
+    {
+      "slug": "pink-princess-philodendron",
+      "common": "Pink Princess Philodendron",
+      "botanical": "Philodendron erubescens Pink Princess",
+      "aka": [
+        "PPP"
+      ],
+      "difficulty": "moderate",
+      "light": "Bright indirect, and plenty of it. Light drives the pink.",
+      "light_short": "Bright indirect",
+      "water": "When the top inch is dry. Do not let it sit wet.",
+      "water_short": "Top 1in dry",
+      "humidity": "55%+.",
+      "soil": "Chunky aroid mix with bark, perlite and a little coir.",
+      "temp_f": "65-80",
+      "feeding": "Balanced feed monthly in the growing season.",
+      "toxic_pets": "toxic",
+      "toxic_note": "Insoluble calcium oxalates. Oral irritation, drooling and vomiting if chewed.",
+      "problems": [
+        {
+          "sign": "All-green leaves with no pink",
+          "cause": "Too little light, or the plant is reverting",
+          "fix": "More bright indirect light. Prune back to a node showing variegation."
+        },
+        {
+          "sign": "An entirely pink leaf that browns and dies",
+          "cause": "No chlorophyll, so the leaf cannot feed itself",
+          "fix": "Expected. Do not chase all-pink leaves - a half-and-half leaf is the healthy ideal."
+        }
+      ],
+      "note": "Aim for roughly half pink per leaf. Fully pink leaves look spectacular in photos and then die, because they have no chlorophyll."
+    },
+    {
+      "slug": "calathea-medallion",
+      "common": "Calathea Medallion",
+      "botanical": "Goeppertia veitchiana",
+      "aka": [
+        "Prayer Plant family"
+      ],
+      "difficulty": "tricky",
+      "light": "Medium indirect. Direct sun bleaches the pattern.",
+      "light_short": "Medium indirect",
+      "water": "Keep evenly moist with filtered or dechlorinated water. Never soggy, never bone dry.",
+      "water_short": "Evenly moist",
+      "humidity": "60%+. Non-negotiable for clean leaf edges.",
+      "soil": "Moisture-retentive but airy mix.",
+      "temp_f": "65-80",
+      "feeding": "Dilute feed monthly in spring and summer.",
+      "toxic_pets": "non-toxic",
+      "toxic_note": "Not known to be toxic to cats or dogs.",
+      "problems": [
+        {
+          "sign": "Crispy brown edges",
+          "cause": "Dry air or minerals in tap water",
+          "fix": "Raise humidity above 60%. Switch to filtered or distilled water."
+        },
+        {
+          "sign": "Leaves curling inward",
+          "cause": "Thirsty, or the air is too dry",
+          "fix": "Water and raise humidity together - usually both are involved."
+        }
+      ],
+      "note": "The undersides are deep purple and the leaves lift at night, so it is worth a spot where you see it from more than one angle."
+    },
+    {
+      "slug": "alocasia-zebrina",
+      "common": "Alocasia Zebrina",
+      "botanical": "Alocasia zebrina",
+      "aka": [
+        "Zebra Plant",
+        "Elephant Ear"
+      ],
+      "difficulty": "tricky",
+      "light": "Bright indirect. No direct sun on the leaves.",
+      "light_short": "Bright indirect",
+      "water": "Lightly moist in summer, much drier in winter. Hates sitting wet.",
+      "water_short": "Lightly moist",
+      "humidity": "60%+.",
+      "soil": "Very airy, fast-draining mix with bark and perlite.",
+      "temp_f": "65-80",
+      "feeding": "Dilute feed monthly in spring and summer only.",
+      "toxic_pets": "toxic",
+      "toxic_note": "High insoluble calcium oxalate content. Significant oral irritation, drooling and swelling if chewed.",
+      "problems": [
+        {
+          "sign": "Fine webbing and stippled leaves",
+          "cause": "Spider mites, which target Alocasia relentlessly",
+          "fix": "Rinse both leaf surfaces, treat with insecticidal soap weekly for three weeks, raise humidity."
+        },
+        {
+          "sign": "Losing every leaf in autumn",
+          "cause": "Usually dormancy, not death",
+          "fix": "Cut water right back, keep the corm warm and barely damp, wait for spring."
+        }
+      ],
+      "note": "The striped stems are the point - give it room so they are visible rather than crowded against other plants."
+    },
+    {
+      "slug": "boston-fern",
+      "common": "Boston Fern",
+      "botanical": "Nephrolepis exaltata",
+      "aka": [
+        "Sword Fern"
+      ],
+      "difficulty": "moderate",
+      "light": "Bright indirect. No direct sun.",
+      "light_short": "Bright indirect",
+      "water": "Keep consistently moist. This is one of the few houseplants that genuinely dislikes drying out.",
+      "water_short": "Keep moist",
+      "humidity": "60%+. The single biggest factor in whether it thrives.",
+      "soil": "Moisture-retentive peat or coir based mix.",
+      "temp_f": "60-75",
+      "feeding": "Dilute feed monthly in spring and summer.",
+      "toxic_pets": "non-toxic",
+      "toxic_note": "Not known to be toxic to cats or dogs.",
+      "problems": [
+        {
+          "sign": "Dropping leaflets all over the floor",
+          "cause": "Air too dry, or it dried out once too often",
+          "fix": "Raise humidity, water more consistently, move away from heating vents."
+        },
+        {
+          "sign": "Pale, washed-out fronds",
+          "cause": "Too much direct light",
+          "fix": "Move to bright indirect or filtered light."
+        }
+      ],
+      "note": "Pet-safe and genuinely lush, but it wants humidity more than any other plant here. A bathroom with a window is close to ideal."
+    },
+    {
+      "slug": "maidenhair-fern",
+      "common": "Maidenhair Fern",
+      "botanical": "Adiantum raddianum",
+      "aka": [
+        "Delta Maidenhair"
+      ],
+      "difficulty": "tricky",
+      "light": "Medium indirect. Direct sun kills it quickly.",
+      "light_short": "Medium indirect",
+      "water": "Never let it dry out, not even once. Keep the soil evenly damp at all times.",
+      "water_short": "Never let dry",
+      "humidity": "60-70%+.",
+      "soil": "Moisture-retentive, airy mix.",
+      "temp_f": "60-75",
+      "feeding": "Very dilute feed every 6-8 weeks in the growing season.",
+      "toxic_pets": "non-toxic",
+      "toxic_note": "Not known to be toxic to cats or dogs.",
+      "problems": [
+        {
+          "sign": "Whole fronds crisping to brown",
+          "cause": "It dried out, or the air is too dry",
+          "fix": "Cut the dead fronds right back to soil level, water, raise humidity. It regrows from the base."
+        },
+        {
+          "sign": "Looks dead entirely",
+          "cause": "Often dormant rather than gone",
+          "fix": "Trim everything to the soil, keep it damp and warm, and give it a month before giving up."
+        }
+      ],
+      "note": "The least forgiving plant in the shop. One missed watering can take out every frond, though it usually regrows from the base if you cut back and keep it damp."
+    },
+    {
+      "slug": "echeveria",
+      "common": "Echeveria",
+      "botanical": "Echeveria elegans",
+      "aka": [
+        "Mexican Snowball",
+        "Hen and Chicks"
+      ],
+      "difficulty": "easy",
+      "light": "As much direct sun as you can give it. At least 6 hours.",
+      "light_short": "Full direct sun",
+      "water": "Soak thoroughly, then let the soil dry out completely. Water the soil, not the rosette.",
+      "water_short": "Dry out fully",
+      "humidity": "Any. Prefers dry.",
+      "soil": "Gritty cactus or succulent mix. Drainage is everything.",
+      "temp_f": "60-80",
+      "feeding": "Dilute succulent feed twice in summer at most.",
+      "toxic_pets": "non-toxic",
+      "toxic_note": "Not known to be toxic to cats or dogs.",
+      "problems": [
+        {
+          "sign": "Stretching tall with gaps between leaves",
+          "cause": "Not enough light - the most common indoor problem",
+          "fix": "Move to the sunniest spot. Behead the stretched rosette and re-root the top."
+        },
+        {
+          "sign": "Mushy translucent lower leaves",
+          "cause": "Overwatering, or water sitting in the rosette",
+          "fix": "Stop watering until bone dry. Always water the soil, never the centre."
+        }
+      ],
+      "note": "Pet-safe and nearly indestructible given enough sun. The powdery coating on the leaves is a natural sunscreen, so handle by the pot rather than the leaves."
+    },
+    {
+      "slug": "haworthia",
+      "common": "Haworthia",
+      "botanical": "Haworthiopsis attenuata",
+      "aka": [
+        "Zebra Plant",
+        "Zebra Haworthia"
+      ],
+      "difficulty": "easy",
+      "light": "Bright indirect to a little direct sun. More tolerant of lower light than most succulents.",
+      "light_short": "Bright indirect",
+      "water": "Let the soil dry completely, then water sparingly. Every 2-3 weeks in summer, monthly in winter.",
+      "water_short": "Dry out fully",
+      "humidity": "Any. Prefers dry.",
+      "soil": "Gritty cactus or succulent mix.",
+      "temp_f": "60-80",
+      "feeding": "Dilute succulent feed once or twice in summer.",
+      "toxic_pets": "non-toxic",
+      "toxic_note": "Not known to be toxic to cats or dogs.",
+      "problems": [
+        {
+          "sign": "Leaves going soft and translucent",
+          "cause": "Overwatering",
+          "fix": "Stop watering. Remove mushy leaves. Repot into dry gritty mix if the base is soft."
+        },
+        {
+          "sign": "Red or purple tinge to the leaves",
+          "cause": "Sun stress - usually harmless",
+          "fix": "Nothing needed unless leaves are also scorching, in which case reduce direct sun."
+        }
+      ],
+      "note": "One of the best desk plants there is: pet-safe, happy in a small pot, tolerant of less light than most succulents, and nearly impossible to underwater."
+    },
+    {
+      "slug": "hoya-kerrii",
+      "common": "Sweetheart Hoya",
+      "botanical": "Hoya kerrii",
+      "aka": [
+        "Valentine Hoya",
+        "Sweetheart Plant"
+      ],
+      "difficulty": "easy",
+      "light": "Bright indirect with some direct sun.",
+      "light_short": "Bright, some direct",
+      "water": "Let the soil dry out almost completely. The thick leaves store water.",
+      "water_short": "Let dry out",
+      "humidity": "40%+.",
+      "soil": "Chunky, free-draining mix with bark and perlite.",
+      "temp_f": "60-85",
+      "feeding": "Balanced feed monthly in spring and summer.",
+      "toxic_pets": "non-toxic",
+      "toxic_note": "Not known to be toxic to cats or dogs.",
+      "problems": [
+        {
+          "sign": "Single leaf never grows anything",
+          "cause": "A single-leaf cutting sold without a node cannot produce a vine",
+          "fix": "Nothing will fix it. It can live for years as a leaf but will never become a plant."
+        },
+        {
+          "sign": "Wrinkled, soft leaves",
+          "cause": "Underwatered or root-bound",
+          "fix": "Water thoroughly and check whether roots fill the pot."
+        }
+      ],
+      "note": "The single heart-shaped leaf sold as a gift is usually just a leaf with no growth node, so it will stay one leaf forever. Buy one with a vine attached if you want an actual plant."
+    },
+    {
+      "slug": "dieffenbachia",
+      "common": "Dieffenbachia",
+      "botanical": "Dieffenbachia seguine",
+      "aka": [
+        "Dumb Cane",
+        "Leopard Lily"
+      ],
+      "difficulty": "easy",
+      "light": "Medium to bright indirect. Tolerates lower light with slower growth.",
+      "light_short": "Medium to bright indirect",
+      "water": "When the top inch is dry.",
+      "water_short": "Top 1in dry",
+      "humidity": "40-60%.",
+      "soil": "Standard potting mix with perlite.",
+      "temp_f": "65-80",
+      "feeding": "Balanced feed monthly in the growing season.",
+      "toxic_pets": "toxic",
+      "toxic_note": "Among the more severe. High calcium oxalate content causes intense oral pain, drooling and swelling that can affect swallowing. Keep well away from pets and small children.",
+      "problems": [
+        {
+          "sign": "Bare leggy stem with leaves only at the top",
+          "cause": "Normal with age, accelerated by low light",
+          "fix": "Cut the cane back hard. It resprouts from the stump, and the cut top roots in water."
+        },
+        {
+          "sign": "Yellowing lower leaves",
+          "cause": "Overwatering or natural leaf drop",
+          "fix": "Let the soil dry further between waterings."
+        }
+      ],
+      "note": "This is the one on the list worth being genuinely careful with. The sap causes painful mouth swelling, which is where the old name dumb cane comes from. Wash your hands after pruning."
+    },
+    {
+      "slug": "croton",
+      "common": "Croton",
+      "botanical": "Codiaeum variegatum",
+      "aka": [
+        "Joseph's Coat",
+        "Garden Croton"
+      ],
+      "difficulty": "moderate",
+      "light": "Bright light with some direct sun. Colour is entirely light-dependent.",
+      "light_short": "Bright, some direct",
+      "water": "Keep lightly moist. Let the top inch dry, no more.",
+      "water_short": "Top 1in dry",
+      "humidity": "50%+.",
+      "soil": "Well-draining potting mix.",
+      "temp_f": "65-80",
+      "feeding": "Balanced feed monthly in spring and summer.",
+      "toxic_pets": "toxic",
+      "toxic_note": "The milky sap irritates skin, mouth and gut. Causes vomiting and drooling if chewed.",
+      "problems": [
+        {
+          "sign": "Dropping all its leaves after you bring it home",
+          "cause": "Shock from the change in light and humidity",
+          "fix": "Pick a bright spot and leave it alone. New growth usually follows within a few weeks."
+        },
+        {
+          "sign": "New leaves coming in plain green",
+          "cause": "Not enough light",
+          "fix": "Move brighter. The reds and yellows only develop with strong light."
+        }
+      ],
+      "note": "Expect it to drop leaves when you first bring it home. That is shock, not death, and it recovers if you stop moving it around."
+    },
+    {
+      "slug": "dracaena-marginata",
+      "common": "Dragon Tree",
+      "botanical": "Dracaena marginata",
+      "aka": [
+        "Madagascar Dragon Tree",
+        "Red-Edged Dracaena"
+      ],
+      "difficulty": "easy",
+      "light": "Medium to bright indirect. Tolerates lower light with slower growth.",
+      "light_short": "Medium to bright indirect",
+      "water": "Let the top half of the pot dry out. Sensitive to fluoride in tap water.",
+      "water_short": "Let dry halfway",
+      "humidity": "40%+.",
+      "soil": "Well-draining potting mix.",
+      "temp_f": "65-80",
+      "feeding": "Dilute feed every 8 weeks in the growing season.",
+      "toxic_pets": "toxic",
+      "toxic_note": "Saponins. Causes vomiting, drooling and loss of appetite. Cats may also show dilated pupils.",
+      "problems": [
+        {
+          "sign": "Brown tips on otherwise healthy leaves",
+          "cause": "Fluoride and salts in tap water",
+          "fix": "Use filtered or distilled water. Trim tips at an angle with scissors."
+        },
+        {
+          "sign": "Yellowing lower leaves dropping off",
+          "cause": "Normal ageing at the base of the cane",
+          "fix": "Nothing. Remove them once fully yellow."
+        }
+      ],
+      "note": "Very tolerant of neglect but genuinely fussy about tap water. If the tips keep browning despite good watering, the water is the cause."
+    },
+    {
+      "slug": "areca-palm",
+      "common": "Areca Palm",
+      "botanical": "Dypsis lutescens",
+      "aka": [
+        "Butterfly Palm",
+        "Golden Cane Palm"
+      ],
+      "difficulty": "moderate",
+      "light": "Bright indirect, with a little direct morning sun tolerated.",
+      "light_short": "Bright indirect",
+      "water": "Keep lightly moist in summer, drier in winter. Sensitive to fluoride.",
+      "water_short": "Lightly moist",
+      "humidity": "50%+.",
+      "soil": "Well-draining potting mix with perlite.",
+      "temp_f": "65-80",
+      "feeding": "Balanced feed monthly in spring and summer.",
+      "toxic_pets": "non-toxic",
+      "toxic_note": "Not known to be toxic to cats or dogs.",
+      "problems": [
+        {
+          "sign": "Brown tips across many fronds",
+          "cause": "Dry air, or fluoride and salts in tap water",
+          "fix": "Raise humidity and switch to filtered water."
+        },
+        {
+          "sign": "Fine webbing between fronds",
+          "cause": "Spider mites, which love dry indoor air",
+          "fix": "Rinse thoroughly, treat with insecticidal soap, raise humidity."
+        }
+      ],
+      "note": "One of the largest genuinely pet-safe plants you can keep indoors, which is why it turns up in so many homes with cats."
+    },
+    {
+      "slug": "string-of-pearls",
+      "common": "String of Pearls",
+      "botanical": "Curio rowleyanus",
+      "aka": [
+        "String of Beads"
+      ],
+      "difficulty": "tricky",
+      "light": "Bright light including a few hours of direct sun.",
+      "light_short": "Bright, some direct",
+      "water": "Let the soil dry completely, then water sparingly. More die from overwatering than anything else.",
+      "water_short": "Dry out fully",
+      "humidity": "Any. Prefers dry.",
+      "soil": "Gritty cactus or succulent mix in a shallow pot.",
+      "temp_f": "60-80",
+      "feeding": "Dilute succulent feed twice in the growing season.",
+      "toxic_pets": "toxic",
+      "toxic_note": "Toxic to cats and dogs. Causes vomiting, drooling and skin irritation on contact.",
+      "problems": [
+        {
+          "sign": "Pearls shrivelling and going flat",
+          "cause": "Underwatered, or roots have died from earlier overwatering",
+          "fix": "Water thoroughly once. If there is no improvement in a week, check the roots."
+        },
+        {
+          "sign": "Mushy pearls and bare strands",
+          "cause": "Overwatering",
+          "fix": "Stop watering. Cut healthy strands and lay them on dry soil to re-root."
+        }
+      ],
+      "note": "The roots are shallow, so a deep pot holds wet soil under them and rots the plant. Use a shallow pot and water less than feels right."
     }
   ]
 }

@@ -34,7 +34,11 @@ ENV = ROOT / ".env"
 
 PORT = 3003
 REDIRECT_URI = f"http://localhost:{PORT}/oauth/callback"
-SCOPES = ["listings_r", "listings_w", "shops_r", "transactions_r"]
+SCOPES = [
+    "listings_r", "listings_w",   # read and create/update listings
+    "shops_r", "shops_w",         # shops_w is required for shop sections
+    "transactions_r",             # sales figures for the weekly report
+]
 
 CONNECT_URL = "https://www.etsy.com/oauth/connect"
 TOKEN_URL = "https://api.etsy.com/v3/public/oauth/token"

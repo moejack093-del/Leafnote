@@ -36,9 +36,26 @@ python scripts/make_cards.py
 ## Needs Leo
 
 1. **Work through `SETUP.md`** — accounts, identity, bank, API keys. Nothing else can go live until this is done.
-2. **Approve listing-fee spend.** Etsy charges $0.20 per listing. At the current 24 species that is
-   **$4.80**; at the full 40 it is **$8.00**. Say yes to a number before the catalog gets pushed.
-   This is the only money this plan spends.
+2. **Hard budget ceiling: $20 total, set by Leo.** Etsy listings cost $0.20 each to activate and
+   **auto-renew every 4 months at $0.20 each**. That renewal is the only recurring cost and the
+   only thing that can creep toward the ceiling.
+
+   | When | Event | Cost | Spent | Left of $20 |
+   |---|---|---|---|---|
+   | Now | Activate 24 | $4.80 | $4.80 | $15.20 |
+   | Month 4 | Auto-renew | $4.80 | $9.60 | $10.40 |
+   | Month 8 | Auto-renew | $4.80 | $14.40 | $5.60 |
+   | Month 12 | Auto-renew | $4.80 | $19.20 | $0.80 |
+
+   So $20 funds roughly **16 months of 24 listings if nothing ever sells**.
+
+   **Decision point at month 4.** If there are zero sales and no meaningful traffic by then, turn
+   off auto-renew and let the listings lapse. Total spend stops at $4.80. If there is traction,
+   renewing is obviously worth it.
+
+   Selling costs are separate and come out of revenue, not Leo's pocket: roughly 6.5% transaction
+   plus ~3% + $0.25 payment processing. On a $4.00 card that is about $0.65, netting ~$3.35.
+   **About 2 sales per 4-month cycle makes the whole thing self-funding.**
 
 ## What is automated vs. manual — honest version
 
