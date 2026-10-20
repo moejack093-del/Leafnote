@@ -1,0 +1,205 @@
+<title>Leafnote Pin Console</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Working console: sticky progress bar over a single column of pin rows. */
+  :root {
+    --bg: #fbf9f4;
+    --surface: #ffffff;
+    --ink: #1f2a24;
+    --muted: #6b7a70;
+    --accent: #2f5d45;
+    --accent-soft: #e8f0ea;
+    --rule: #ddd8cc;
+    --done: #8aa394;
+    --display: "Newsreader", Georgia, serif;
+    --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141916;
+      --surface: #1c231e;
+      --ink: #e8e9e4;
+      --muted: #9aa89f;
+      --accent: #8fc2a5;
+      --accent-soft: #233029;
+      --rule: #2e3832;
+      --done: #5c7466;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141916; --surface: #1c231e; --ink: #e8e9e4; --muted: #9aa89f;
+    --accent: #8fc2a5; --accent-soft: #233029; --rule: #2e3832; --done: #5c7466;
+    color-scheme: dark;
+  }
+
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .wrap {
+    max-width: 58rem; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 2rem 4rem;
+  }
+
+  header { margin-bottom: 1.5rem; }
+  h1 {
+    font-family: var(--display); font-weight: 600; font-size: clamp(1.8rem, 5vw, 2.6rem);
+    margin: 0 0 .35rem; text-wrap: balance; letter-spacing: -.01em;
+  }
+  .sub { color: var(--muted); margin: 0; max-width: 46ch; line-height: 1.55; }
+
+  .bar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    background: var(--bg); border-bottom: 1px solid var(--rule);
+    padding-block: .8rem; margin-bottom: 1.25rem;
+    display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+  }
+  .count { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .track { flex: 1 1 10rem; min-width: 0; height: 7px; border-radius: 99px; background: var(--rule); overflow: hidden; }
+  .fill { height: 100%; width: 0; background: var(--accent); transition: width .25s ease; }
+  .go {
+    font: inherit; font-weight: 600; text-decoration: none;
+    background: var(--accent); color: var(--bg);
+    padding: .5rem .9rem; border-radius: 7px; white-space: nowrap;
+  }
+  .pin {
+    display: grid; grid-template-columns: 92px 1fr; gap: 1rem;
+    background: var(--surface); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 1rem; margin-bottom: .85rem;
+  }
+  .pin.done { opacity: .5; }
+  .pin img { width: 92px; border-radius: 5px; display: block; border: 1px solid var(--rule); }
+  .meta { min-width: 0; display: flex; flex-direction: column; gap: .6rem; }
+  .top { display: flex; gap: .6rem; align-items: flex-start; justify-content: space-between; }
+  .ttl { font-family: var(--display); font-size: 1.12rem; font-weight: 600; margin: 0; line-height: 1.3; }
+  .when { color: var(--muted); font-size: .82rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .board {
+    display: inline-block; background: var(--accent-soft); color: var(--accent);
+    font-size: .74rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+    padding: .2rem .5rem; border-radius: 4px; align-self: flex-start;
+  }
+  .desc { color: var(--muted); font-size: .88rem; line-height: 1.5; margin: 0; }
+  .row { display: flex; gap: .4rem; flex-wrap: wrap; }
+  button.cp {
+    font: inherit; font-size: .82rem; font-weight: 500; cursor: pointer;
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 6px; padding: .3rem .6rem;
+  }
+  button.cp:hover { border-color: var(--accent); color: var(--accent); }
+  button.cp.ok { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  label.chk { display: flex; gap: .4rem; align-items: center; font-size: .82rem; color: var(--muted); cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media (max-width: 460px) {
+    .pin { grid-template-columns: 64px 1fr; }
+    .pin img { width: 64px; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Pin console</h1>
+    <p class="sub">Pinterest has no organic bulk upload, so these go up one at a
+      time. Everything you need to paste is one click away. Aim for two or three
+      a day rather than all of them at once.</p>
+  </header>
+
+  <div class="bar">
+    <span class="count"><span id="n">0</span> / 43 posted</span>
+    <span class="track"><span class="fill" id="fill"></span></span>
+    <a class="go" href="https://pinterest.com/pin-creation-tool/" target="_blank" rel="noopener">Open Pinterest</a>
+  </div>
+
+  <div id="list"></div>
+</div>
+
+<script>
+const PINS = [{"t": "25 houseplants that survive almost anything", "u": "https://moejack093-del.github.io/Leafnote/pins/list-easy-care.png", "b": "Houseplant Care", "d": "If you have killed things before, start here. These tolerate low light, irregular watering and general neglect. The most common way people kill all of them is overwatering, not under. #houseplants #beginnerplants #plantcare", "l": "https://www.etsy.com/shop/LeafnoteStudio", "w": "2026-10-20 10:00"}, {"t": "18 houseplants that will not poison your cat or dog", "u": "https://moejack093-del.github.io/Leafnote/pins/list-pet-safe.png", "b": "Pet-Safe Houseplants", "d": "Every plant here is non-toxic to cats and dogs. Note that most toxic houseplants cause mouth irritation and an upset stomach rather than anything worse, but if you want to stop worrying entirely, start with this list. #petsafeplants #catsafeplants #houseplants", "l": "https://www.etsy.com/shop/LeafnoteStudio", "w": "2026-10-20 13:00"}, {"t": "The houseplants that are genuinely difficult - and what they need", "u": "https://moejack093-del.github.io/Leafnote/pins/list-tricky.png", "b": "Houseplant Care", "d": "These are the ones that drop leaves, crisp at the edges and generally punish guesswork. Humidity and water quality matter far more than for the easy plants. #houseplants #plantcare #planttips", "l": "https://www.etsy.com/shop/LeafnoteStudio", "w": "2026-10-20 16:00"}, {"t": "Air Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/air-plant.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Air Plant (Tillandsia ionantha) alive. Light: bright indirect. Water: soak 20min, 1-2wk. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087782/air-plant-care-card-printable-tillandsia", "w": "2026-10-21 10:00"}, {"t": "Alocasia Polly Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/alocasia-polly.png", "b": "Houseplant Care", "d": "How to actually keep a Alocasia Polly (Alocasia x amazonica 'Polly') alive. Light: bright indirect. Water: lightly moist. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599064035/alocasia-polly-care-card-printable", "w": "2026-10-21 13:00"}, {"t": "Alocasia Zebrina Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/alocasia-zebrina.png", "b": "Houseplant Care", "d": "How to actually keep a Alocasia Zebrina (Alocasia zebrina) alive. Light: bright indirect. Water: lightly moist. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599103192/alocasia-zebrina-care-card-printable", "w": "2026-10-21 16:00"}, {"t": "Aloe Vera Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/aloe-vera.png", "b": "Houseplant Care", "d": "How to actually keep a Aloe Vera (Aloe barbadensis miller) alive. Light: bright, some direct. Water: dry out fully. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599064143/aloe-vera-care-card-printable-aloe", "w": "2026-10-22 10:00"}, {"t": "Anthurium Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/anthurium.png", "b": "Houseplant Care", "d": "How to actually keep a Anthurium (Anthurium andraeanum) alive. Light: bright indirect. Water: top 1in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599064229/anthurium-care-card-printable-anthurium", "w": "2026-10-22 13:00"}, {"t": "Areca Palm Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/areca-palm.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Areca Palm (Dypsis lutescens) alive. Light: bright indirect. Water: lightly moist. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599103424/areca-palm-care-card-printable-dypsis", "w": "2026-10-22 16:00"}, {"t": "Bird of Paradise Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/bird-of-paradise.png", "b": "Houseplant Care", "d": "How to actually keep a Bird of Paradise (Strelitzia nicolai) alive. Light: bright, direct sun. Water: top 2in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599103110/bird-of-paradise-care-card-printable", "w": "2026-10-23 10:00"}, {"t": "Bird's Nest Fern Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/birds-nest-fern.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Bird's Nest Fern (Asplenium nidus) alive. Light: low to medium indirect. Water: lightly moist. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599064081/birds-nest-fern-care-card-printable", "w": "2026-10-23 13:00"}, {"t": "Boston Fern Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/boston-fern.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Boston Fern (Nephrolepis exaltata) alive. Light: bright indirect. Water: keep moist. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599103220/boston-fern-care-card-printable", "w": "2026-10-23 16:00"}, {"t": "Calathea Medallion Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/calathea-medallion.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Calathea Medallion (Goeppertia veitchiana) alive. Light: medium indirect. Water: evenly moist. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079459/calathea-medallion-care-card-printable", "w": "2026-10-24 10:00"}, {"t": "Calathea Orbifolia Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/calathea-orbifolia.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Calathea Orbifolia (Goeppertia orbifolia) alive. Light: medium indirect. Water: evenly moist. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087480/calathea-orbifolia-care-card-printable", "w": "2026-10-24 13:00"}, {"t": "Croton Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/croton.png", "b": "Houseplant Care", "d": "How to actually keep a Croton (Codiaeum variegatum) alive. Light: bright, some direct. Water: top 1in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079651/croton-care-card-printable-codiaeum", "w": "2026-10-24 16:00"}, {"t": "Dieffenbachia Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/dieffenbachia.png", "b": "Houseplant Care", "d": "How to actually keep a Dieffenbachia (Dieffenbachia seguine) alive. Light: medium to bright indirect. Water: top 1in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079625/dieffenbachia-care-card-printable", "w": "2026-10-25 10:00"}, {"t": "Dragon Tree Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/dracaena-marginata.png", "b": "Houseplant Care", "d": "How to actually keep a Dragon Tree (Dracaena marginata) alive. Light: medium to bright indirect. Water: let dry halfway. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079669/dragon-tree-care-card-printable-dracaena", "w": "2026-10-25 13:00"}, {"t": "Echeveria Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/echeveria.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Echeveria (Echeveria elegans) alive. Light: full direct sun. Water: dry out fully. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079569/echeveria-care-card-printable-echeveria", "w": "2026-10-25 16:00"}, {"t": "Fiddle Leaf Fig Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/fiddle-leaf-fig.png", "b": "Houseplant Care", "d": "How to actually keep a Fiddle Leaf Fig (Ficus lyrata) alive. Light: bright, some direct. Water: top 2in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599063837/fiddle-leaf-fig-care-card-printable", "w": "2026-10-26 10:00"}, {"t": "Golden Pothos Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/golden-pothos.png", "b": "Houseplant Care", "d": "How to actually keep a Golden Pothos (Epipremnum aureum) alive. Light: low to bright indirect. Water: let dry halfway. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599063765/golden-pothos-care-card-printable", "w": "2026-10-26 13:00"}, {"t": "Haworthia Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/haworthia.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Haworthia (Haworthiopsis attenuata) alive. Light: bright indirect. Water: dry out fully. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079585/haworthia-care-card-printable", "w": "2026-10-26 16:00"}, {"t": "Hoya Carnosa Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/hoya-carnosa.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Hoya Carnosa (Hoya carnosa) alive. Light: bright, some direct. Water: let dry halfway. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599064195/hoya-carnosa-care-card-printable-hoya", "w": "2026-10-27 10:00"}, {"t": "Sweetheart Hoya Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/hoya-kerrii.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Sweetheart Hoya (Hoya kerrii) alive. Light: bright, some direct. Water: let dry out. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079605/sweetheart-hoya-care-card-printable-hoya", "w": "2026-10-27 13:00"}, {"t": "Jade Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/jade-plant.png", "b": "Houseplant Care", "d": "How to actually keep a Jade Plant (Crassula ovata) alive. Light: bright, direct sun. Water: dry out fully. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087646/jade-plant-care-card-printable-crassula", "w": "2026-10-27 16:00"}, {"t": "Maidenhair Fern Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/maidenhair-fern.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Maidenhair Fern (Adiantum raddianum) alive. Light: medium indirect. Water: never let dry. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079543/maidenhair-fern-care-card-printable", "w": "2026-10-28 10:00"}, {"t": "Marble Queen Pothos Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/marble-queen-pothos.png", "b": "Houseplant Care", "d": "How to actually keep a Marble Queen Pothos (Epipremnum aureum Marble Queen) alive. Light: bright indirect. Water: let dry halfway. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599103082/marble-queen-pothos-care-card-printable", "w": "2026-10-28 13:00"}, {"t": "Swiss Cheese Vine Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/monstera-adansonii.png", "b": "Houseplant Care", "d": "How to actually keep a Swiss Cheese Vine (Monstera adansonii) alive. Light: bright indirect. Water: top 1in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599063745/swiss-cheese-vine-care-card-printable", "w": "2026-10-28 16:00"}, {"t": "Monstera Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/monstera-deliciosa.png", "b": "Houseplant Care", "d": "How to actually keep a Monstera (Monstera deliciosa) alive. Light: bright indirect. Water: top 2in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599086512/monstera-care-card-printable-monstera", "w": "2026-10-29 10:00"}, {"t": "Parlor Palm Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/parlor-palm.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Parlor Palm (Chamaedorea elegans) alive. Light: low to medium indirect. Water: top 1in dry. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087706/parlor-palm-care-card-printable", "w": "2026-10-29 13:00"}, {"t": "Peace Lily Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/peace-lily.png", "b": "Houseplant Care", "d": "How to actually keep a Peace Lily (Spathiphyllum wallisii) alive. Light: low to bright indirect. Water: keep lightly moist. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087392/peace-lily-care-card-printable", "w": "2026-10-29 16:00"}, {"t": "Baby Rubber Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/peperomia-obtusifolia.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Baby Rubber Plant (Peperomia obtusifolia) alive. Light: medium to bright indirect. Water: let dry halfway. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087726/baby-rubber-plant-care-card-printable", "w": "2026-10-30 10:00"}, {"t": "Philodendron Birkin Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/philodendron-birkin.png", "b": "Houseplant Care", "d": "How to actually keep a Philodendron Birkin (Philodendron Birkin) alive. Light: bright indirect. Water: top 1in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599103120/philodendron-birkin-care-card-printable", "w": "2026-10-30 13:00"}, {"t": "Philodendron Brasil Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/philodendron-brasil.png", "b": "Houseplant Care", "d": "How to actually keep a Philodendron Brasil (Philodendron hederaceum 'Brasil') alive. Light: medium to bright indirect. Water: top 1in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599063971/philodendron-brasil-care-card-printable", "w": "2026-10-30 16:00"}, {"t": "Chinese Money Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/pilea-peperomioides.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Chinese Money Plant (Pilea peperomioides) alive. Light: bright indirect. Water: top 1in dry. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599063907/chinese-money-plant-care-card-printable", "w": "2026-10-31 10:00"}, {"t": "Pink Princess Philodendron Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/pink-princess-philodendron.png", "b": "Houseplant Care", "d": "How to actually keep a Pink Princess Philodendron (Philodendron erubescens Pink Princess) alive. Light: bright indirect. Water: top 1in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079437/pink-princess-philodendron-care-card", "w": "2026-10-31 13:00"}, {"t": "Prayer Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/prayer-plant.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Prayer Plant (Maranta leuconeura) alive. Light: medium indirect. Water: evenly moist. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599064019/prayer-plant-care-card-printable-maranta", "w": "2026-10-31 16:00"}, {"t": "Rubber Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/rubber-plant.png", "b": "Houseplant Care", "d": "How to actually keep a Rubber Plant (Ficus elastica) alive. Light: bright indirect. Water: top 2in dry. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087364/rubber-plant-care-card-printable-ficus", "w": "2026-11-01 10:00"}, {"t": "Snake Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/snake-plant.png", "b": "Houseplant Care", "d": "How to actually keep a Snake Plant (Dracaena trifasciata) alive. Light: low to full sun. Water: dry out fully. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599063791/snake-plant-care-card-printable-dracaena", "w": "2026-11-01 13:00"}, {"t": "Spider Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/spider-plant.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Spider Plant (Chlorophytum comosum) alive. Light: bright indirect. Water: top 1in dry. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599064113/spider-plant-care-card-printable", "w": "2026-11-01 16:00"}, {"t": "String of Hearts Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/string-of-hearts.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a String of Hearts (Ceropegia woodii) alive. Light: bright, some direct. Water: dry out fully. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599063935/string-of-hearts-care-card-printable", "w": "2026-11-02 10:00"}, {"t": "String of Pearls Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/string-of-pearls.png", "b": "Houseplant Care", "d": "How to actually keep a String of Pearls (Curio rowleyanus) alive. Light: bright, some direct. Water: dry out fully. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599079711/string-of-pearls-care-card-printable", "w": "2026-11-02 13:00"}, {"t": "Watermelon Peperomia Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/watermelon-peperomia.png", "b": "Pet-Safe Houseplants", "d": "How to actually keep a Watermelon Peperomia (Peperomia argyreia) alive. Light: medium to bright indirect. Water: let dry halfway. Safe around cats and dogs. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087752/watermelon-peperomia-care-card-printable", "w": "2026-11-02 16:00"}, {"t": "ZZ Plant Care Guide - Printable Card", "u": "https://moejack093-del.github.io/Leafnote/pins/zz-plant.png", "b": "Houseplant Care", "d": "How to actually keep a ZZ Plant (Zamioculcas zamiifolia) alive. Light: low to bright indirect. Water: fully dry, 2-4wk. Toxic to cats and dogs - worth knowing before you buy. Printable 4x6 card with troubleshooting on the back half. #houseplants #planttips #plantcare", "l": "https://www.etsy.com/listing/4599087328/zz-plant-care-card-printable-zamioculcas", "w": "2026-11-03 10:00"}];
+const KEY = "leafnote_pins_done";
+
+function loadDone() {
+  try { return new Set(JSON.parse(localStorage.getItem(KEY) || "[]")); }
+  catch (e) { return new Set(); }
+}
+function saveDone(s) {
+  try { localStorage.setItem(KEY, JSON.stringify([...s])); } catch (e) {}
+}
+
+const done = loadDone();
+
+function copy(text, btn) {
+  const mark = () => {
+    const old = btn.textContent;
+    btn.textContent = "Copied";
+    btn.classList.add("ok");
+    setTimeout(() => { btn.textContent = old; btn.classList.remove("ok"); }, 1100);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(mark).catch(() => fallback(text, mark));
+  } else { fallback(text, mark); }
+}
+function fallback(text, mark) {
+  const ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); mark(); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+function tally() {
+  document.getElementById("n").textContent = done.size;
+  document.getElementById("fill").style.width =
+    (PINS.length ? (done.size / PINS.length) * 100 : 0) + "%";
+}
+
+const list = document.getElementById("list");
+PINS.forEach((p, i) => {
+  const el = document.createElement("div");
+  el.className = "pin" + (done.has(p.u) ? " done" : "");
+  const img = document.createElement("img");
+  img.src = p.u; img.alt = p.t; img.loading = "lazy";
+  const meta = document.createElement("div");
+  meta.className = "meta";
+
+  const top = document.createElement("div");
+  top.className = "top";
+  const h = document.createElement("p");
+  h.className = "ttl"; h.textContent = p.t;
+  const when = document.createElement("span");
+  when.className = "when"; when.textContent = p.w.split(" ")[0];
+  top.append(h, when);
+
+  const board = document.createElement("span");
+  board.className = "board"; board.textContent = p.b;
+
+  const desc = document.createElement("p");
+  desc.className = "desc"; desc.textContent = p.d;
+
+  const row = document.createElement("div");
+  row.className = "row";
+  [["Image URL", p.u], ["Title", p.t], ["Description", p.d],
+   ["Link", p.l], ["Board", p.b]].forEach(([label, val]) => {
+    const b = document.createElement("button");
+    b.className = "cp"; b.type = "button"; b.textContent = label;
+    b.addEventListener("click", () => copy(val, b));
+    row.appendChild(b);
+  });
+
+  const lab = document.createElement("label");
+  lab.className = "chk";
+  const cb = document.createElement("input");
+  cb.type = "checkbox"; cb.id = "p" + i; cb.checked = done.has(p.u);
+  cb.addEventListener("change", () => {
+    if (cb.checked) { done.add(p.u); el.classList.add("done"); }
+    else { done.delete(p.u); el.classList.remove("done"); }
+    saveDone(done); tally();
+  });
+  lab.append(cb, document.createTextNode("Posted"));
+
+  meta.append(top, board, desc, row, lab);
+  el.append(img, meta);
+  list.appendChild(el);
+});
+tally();
+</script>

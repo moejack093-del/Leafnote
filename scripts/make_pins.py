@@ -161,9 +161,14 @@ def main() -> int:
         species_pin(sp, card).save(pdir / f"{sp['slug']}.png", "PNG")
 
         safe = sp["toxic_pets"] == "non-toxic"
+        # Prefer Etsy's canonical URL (it carries the title slug) over one
+        # built from the id. Both resolve, but the canonical form is what Etsy
+        # itself links to.
         link = SHOP
-        if sp["slug"] in listings:
-            link = f"https://www.etsy.com/listing/{listings[sp['slug']]['listing_id']}"
+        rec = listings.get(sp["slug"])
+        if rec:
+            link = rec.get("url") or \
+                f"https://www.etsy.com/listing/{rec['listing_id']}"
 
         rows.append({
             "file": f"pinterest/{sp['slug']}.png",

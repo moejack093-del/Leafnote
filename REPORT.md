@@ -1,15 +1,15 @@
 # Leafnote weekly report
 
-Generated 2026-10-20 01:18 UTC
+Generated 2026-10-20 20:08 UTC
 
 ## Numbers
 
 | | |
 |---|---|
 | Active listings | 40 |
-| Total views | 0 |
+| Total views | 0 (+0 since last report) |
 | Favourites | 0 |
-| Orders | 0 |
+| Orders | 0 (+0) |
 | Revenue | $0.00 |
 | Spent on listing fees | $8.00 |
 | Net | $-8.00 |
