@@ -57,15 +57,23 @@ def read_env() -> dict:
 
 
 def write_env(updates: dict) -> None:
-    """Update keys in place, preserving comments and ordering."""
-    text = ENV.read_text(encoding="utf-8")
+    """Update keys in place, preserving comments and ordering.
+
+    newline="" on both read and write is load-bearing on Windows: without it
+    Python translates \\n to \\r\\n on write, which appends a carriage return to
+    every value in the file. A key with a trailing \\r fails authentication with
+    an error that gives no hint about why.
+    """
+    with open(ENV, "r", encoding="utf-8", newline="") as fh:
+        text = fh.read().replace("\r\n", "\n").replace("\r", "\n")
     for key, val in updates.items():
         pattern = rf"(?m)^{re.escape(key)}=.*$"
         if re.search(pattern, text):
             text = re.sub(pattern, f"{key}={val}", text)
         else:
             text = text.rstrip() + f"\n{key}={val}\n"
-    ENV.write_text(text, encoding="utf-8")
+    with open(ENV, "w", encoding="utf-8", newline="") as fh:
+        fh.write(text)
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
