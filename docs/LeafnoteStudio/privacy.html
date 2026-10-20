@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — Leafnote</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbf9f4; --surface: #ffffff; --ink: #1f2a24;
+    --muted: #6b7a70; --accent: #2f5d45; --rule: #ddd8cc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141916; --surface: #1c231e; --ink: #e8e9e4;
+      --muted: #9aa89f; --accent: #8fc2a5; --rule: #2e3832;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.65 "Segoe UI", system-ui, -apple-system, sans-serif;
+    padding: 3rem 1rem 5rem;
+  }
+  main { max-width: 42rem; margin: 0 auto; }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.9rem, 5vw, 2.5rem); margin: 0 0 .4rem;
+    letter-spacing: -.01em;
+  }
+  .meta { color: var(--muted); margin: 0 0 2rem; font-size: .92rem; }
+  h2 {
+    font-family: Georgia, serif; font-size: 1.22rem;
+    margin: 2.2rem 0 .6rem; padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+  }
+  h2:first-of-type { border-top: 0; padding-top: 0; }
+  p, li { color: var(--ink); }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: .4rem; }
+  a { color: var(--accent); }
+  .note {
+    background: var(--surface); border: 1px solid var(--rule);
+    border-radius: 8px; padding: 1rem 1.2rem; margin: 1.4rem 0;
+  }
+  footer {
+    margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: .9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Leafnote Pin Manager &middot; Last updated 20 October 2026</p>
+
+  <div class="note">
+    <strong>In short:</strong> Leafnote Pin Manager is a private tool used by one
+    person to publish pins to their own Pinterest account. It has no other users,
+    collects no data from anyone, and shares nothing with anybody.
+  </div>
+
+  <h2>What this application is</h2>
+  <p>
+    Leafnote Pin Manager is a personal command-line script used by the owner of
+    the Etsy shop <a href="https://www.etsy.com/shop/LeafnoteStudio">LeafnoteStudio</a>
+    to publish plant care card images to their own Pinterest boards. It is not
+    distributed, not offered as a service, and has no users other than its owner.
+  </p>
+
+  <h2>What data it accesses</h2>
+  <p>Through the Pinterest API, acting solely as the authenticated account owner, it:</p>
+  <ul>
+    <li>reads the list of boards on the owner's own Pinterest account, in order to know where to publish;</li>
+    <li>reads the owner's own account username, to confirm the connection is working;</li>
+    <li>creates pins on the owner's own boards.</li>
+  </ul>
+  <p>
+    It does not read, request, or store any data belonging to other Pinterest
+    users. It does not access other Pinners' pins, boards, profiles, followers
+    or activity.
+  </p>
+
+  <h2>What data it stores</h2>
+  <p>
+    An OAuth access token and refresh token are written to a local file on the
+    owner's own computer so the script does not have to re-authorise on every
+    run. That file is excluded from version control and is never transmitted
+    anywhere except back to Pinterest for authentication.
+  </p>
+  <p>
+    A local record of which pins have already been published is kept so that
+    re-running the script does not create duplicates. It contains only pin IDs
+    and titles the owner wrote.
+  </p>
+  <p>No database, no server, and no analytics are involved.</p>
+
+  <h2>What is shared</h2>
+  <p>
+    Nothing. No data is sold, shared, transmitted to third parties, or used for
+    advertising, profiling or training. There are no third-party trackers or
+    analytics in this application.
+  </p>
+
+  <h2>Images published</h2>
+  <p>
+    The images published as pins are plant care cards created by the shop owner
+    and hosted on this same site. They contain no personal data.
+  </p>
+
+  <h2>Retention and deletion</h2>
+  <p>
+    Tokens are kept only while the tool is in use and can be revoked at any time
+    by the owner from Pinterest's own account settings, which immediately ends
+    this application's access. Deleting the local file removes the stored
+    credentials entirely.
+  </p>
+
+  <h2>Children</h2>
+  <p>
+    This application is not directed at children and has no users other than its
+    owner.
+  </p>
+
+  <h2>Changes</h2>
+  <p>
+    If what the tool does changes, this page is updated. The date at the top
+    reflects the current version.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about this policy can be sent through the
+    <a href="https://www.etsy.com/shop/LeafnoteStudio">LeafnoteStudio</a>
+    Etsy shop's contact form.
+  </p>
+
+  <footer>
+    Leafnote &middot; <a href="./">Site home</a>
+  </footer>
+</main>
+</body>
+</html>
