@@ -14,14 +14,15 @@ with an SEO blog as the automated traffic layer.
 | Piece | State |
 |---|---|
 | Niche + product line chosen | Done |
-| Project scaffolding | Done |
-| Setup checklist for Leo | Done — see `SETUP.md` (incl. Metricool) |
-| Species data + care content | **24 of 40 done** — `data/species.json`, validated |
-| Card designs | **Done for all 24** — `scripts/make_cards.py` → PNG + print PDF |
-| Etsy API push script | Not started |
-| SEO blog + GitHub Actions cron | Not started |
-| Pinterest batch generator | Not started |
-| Weekly `REPORT.md` job | Not started |
+| Species data + care content | **40 of 40** — `data/species.json`, validated |
+| Card designs | **40** — `scripts/make_cards.py` → PNG + print PDF |
+| Etsy listings | **40 active**, pushed by API, storefront fully set up |
+| Pinterest | **Automated.** 51 pins live, 152 queued, 8/day via Task Scheduler |
+| Weekly `REPORT.md` job | Scheduled, Mondays 09:00 |
+| SEO blog | 45 pages built by `scripts/build_site.py`; **published manually** |
+| Instagram / TikTok | Not started — see `STATUS.md` |
+
+Current numbers and what needs you live in **`STATUS.md`**.
 
 **Runtime:** Python 3.12 (already installed at
 `C:\Users\Leo\AppData\Local\Programs\Python\Python312\python.exe`) plus Pillow, installed.
@@ -42,12 +43,12 @@ python scripts/make_cards.py
 
    | When | Event | Cost | Spent | Left of $20 |
    |---|---|---|---|---|
-   | Now | Activate 24 | $4.80 | $4.80 | $15.20 |
-   | Month 4 | Auto-renew | $4.80 | $9.60 | $10.40 |
-   | Month 8 | Auto-renew | $4.80 | $14.40 | $5.60 |
-   | Month 12 | Auto-renew | $4.80 | $19.20 | $0.80 |
+   | Done (Oct 2026) | Activate 40 | $8.00 | $8.00 | $12.00 |
+   | Feb 2027 | Auto-renew | $8.00 | $16.00 | $4.00 |
+   | Jun 2027 | Auto-renew | $8.00 | $24.00 | **over** |
 
-   So $20 funds roughly **16 months of 24 listings if nothing ever sells**.
+   So $20 funds **40 listings until roughly June 2027 if nothing ever sells** —
+   one renewal, then a decision.
 
    **Decision point at month 4.** If there are zero sales and no meaningful traffic by then, turn
    off auto-renew and let the listings lapse. Total spend stops at $4.80. If there is traction,
@@ -61,17 +62,26 @@ python scripts/make_cards.py
 
 **Fully automated, no ongoing work:**
 - Order fulfillment. Etsy delivers the digital files itself the moment payment clears. Genuinely zero-touch.
-- SEO blog. GitHub Actions cron generates and publishes species pages on a schedule. Free tier, no approval gate.
-- Weekly `REPORT.md`. Generated from Etsy's stats API.
-
-**Automated once set up, by API:**
+- **Pinterest.** Standard API access came through, so `post_pins.py` publishes directly.
+  A daily task posts 8/day from the queue. This was previously listed here as
+  *not* automatable — that is now wrong, and it is the single biggest change
+  to the project.
+- Weekly `REPORT.md`. Generated from Etsy's stats API, Mondays 09:00.
 - Etsy listing creation. `createDraftListing` + activate, so no manual listing forms.
 
-**NOT automatable — these are your 15 min/week:**
-- **Pinterest.** Pinterest's API puts approved apps in Trial tier, where pins are visible only to you.
-  Standard access needs a separate review with a demo video of the OAuth flow, and it is not guaranteed.
-  So: I generate a batch of pin images + titles + descriptions, you upload them.
-- **TikTok.** Direct posting needs audited Content Posting API access. Same deal — batch upload.
+Both scheduled tasks run on this PC only, and only while it is on.
+
+**Built but still manual:**
+- **SEO blog.** `scripts/build_site.py` generates 45 pages, but there is no
+  cron publishing them — `.github/workflows/` is empty. An earlier version of
+  this file claimed a GitHub Actions cron existed. It never did.
+
+**NOT automatable, confirmed from the platform's own docs:**
+- **TikTok.** The Content Posting API restricts *all* content from unaudited
+  apps to private viewing. Lifting it needs `video.publish` approval, a
+  Terms-of-Service audit, and a verified domain. Batch upload or nothing.
+- **Instagram** is probably automatable for our own account, but Meta's docs
+  do not confirm it without Advanced Access. Untested. See `STATUS.md`.
 
 ## Rules this project runs under
 
