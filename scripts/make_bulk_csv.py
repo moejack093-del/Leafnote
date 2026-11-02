@@ -27,6 +27,7 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent
 PINS = ROOT / "designs" / "pins" / "pinterest"
 COPY = ROOT / "designs" / "pins" / "pin_copy.csv"
+COPY_VARIANTS = ROOT / "designs" / "pins" / "pin_copy_variants.csv"
 DOCS = ROOT / "docs" / "pins"
 OUT = ROOT / "pinterest_bulk.csv"
 
@@ -44,6 +45,8 @@ def main() -> int:
 
     DOCS.mkdir(parents=True, exist_ok=True)
     rows = list(csv.DictReader(open(COPY, encoding="utf-8")))
+    variants = list(csv.DictReader(open(COPY_VARIANTS, encoding="utf-8"))) \
+        if COPY_VARIANTS.exists() else []
 
     start = (datetime.now() + timedelta(days=START_OFFSET_DAYS)).replace(
         hour=10, minute=0, second=0, microsecond=0)
@@ -51,6 +54,28 @@ def main() -> int:
     # Lead with the list pins. They are useful standalone, which is what gets
     # saved, and saves are what Pinterest actually rewards.
     rows.sort(key=lambda r: (0 if "list-" in r["file"] else 1, r["file"]))
+
+    # Then the variants, interleaved by kind rather than grouped. Forty
+    # troubleshooting pins in a row would post as forty near-identical
+    # layouts on consecutive days, which reads as a bot and gives the
+    # account no topical range. Round-robin spreads the designs and the
+    # boards across every day of the drip.
+    order = ["problem", "water", "toxic", "light"]
+    buckets = {k: [r for r in variants if r["file"].endswith(f"-{k}.png")]
+               for k in order}
+    # Offset each bucket by a different slice of the species list. Without
+    # this the round-robin still drew all four designs for Monstera, then all
+    # four for the next plant -- same plant four times in a day. Rotating
+    # staggers the species as well as the design.
+    for i, k in enumerate(order):
+        b = buckets[k]
+        if b:
+            cut = (len(b) * i) // len(order)
+            buckets[k] = b[cut:] + b[:cut]
+    while any(buckets.values()):
+        for k in order:
+            if buckets[k]:
+                rows.append(buckets[k].pop(0))
 
     out_rows = []
     for i, r in enumerate(rows):

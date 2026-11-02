@@ -1,13 +1,13 @@
 # Leafnote weekly report
 
-Generated 2026-10-20 20:08 UTC
+Generated 2026-11-02 04:16 UTC
 
 ## Numbers
 
 | | |
 |---|---|
 | Active listings | 40 |
-| Total views | 0 (+0 since last report) |
+| Total views | 86 (+86 since last report) |
 | Favourites | 0 |
 | Orders | 0 (+0) |
 | Revenue | $0.00 |
@@ -16,36 +16,36 @@ Generated 2026-10-20 20:08 UTC
 
 ## What this means
 
-**No views and no sales.** Nothing is reaching anyone yet.
+**86 views, no sales.** People are finding the listings and not buying.
 
-If the shop has been live less than about three weeks, this is normal and expected -- Etsy indexes new listings slowly and ranks new shops poorly until they have sales history.
-
-If it has been live longer than three weeks, the titles and tags are not matching what people actually search. That is a fixable problem, but it needs changing rather than waiting.
+This is a different problem from no views, and it has different fixes: price, the preview image, or the listing description. Below roughly 200 views total it is too early to read anything into it -- conversion rates on a new shop with no reviews are low by default.
 
 ## Listings by views
 
 | Plant | Views | Faves | Pet-safe |
 |---|---:|---:|:---:|
-| Monstera | 0 | 0 |  |
-| Swiss Cheese Vine | 0 | 0 |  |
-| Golden Pothos | 0 | 0 |  |
-| Snake Plant | 0 | 0 |  |
-| ZZ Plant | 0 | 0 |  |
-| Fiddle Leaf Fig | 0 | 0 |  |
-| Rubber Plant | 0 | 0 |  |
-| Peace Lily | 0 | 0 |  |
-| Chinese Money Plant | 0 | 0 | yes |
-| String of Hearts | 0 | 0 | yes |
-| Philodendron Brasil | 0 | 0 |  |
-| Calathea Orbifolia | 0 | 0 | yes |
-| Prayer Plant | 0 | 0 | yes |
-| Alocasia Polly | 0 | 0 |  |
-| Bird's Nest Fern | 0 | 0 | yes |
+| Peace Lily | 14 | 0 |  |
+| Prayer Plant | 12 | 0 | yes |
+| Anthurium | 12 | 0 |  |
+| Air Plant | 11 | 0 | yes |
+| ZZ Plant | 7 | 0 |  |
+| Calathea Medallion | 4 | 0 | yes |
+| Croton | 4 | 0 |  |
+| Areca Palm | 4 | 0 | yes |
+| Snake Plant | 3 | 0 |  |
+| Watermelon Peperomia | 3 | 0 | yes |
+| Parlor Palm | 2 | 0 | yes |
+| Swiss Cheese Vine | 1 | 0 |  |
+| Golden Pothos | 1 | 0 |  |
+| Fiddle Leaf Fig | 1 | 0 |  |
+| Spider Plant | 1 | 0 | yes |
+
+**19 listings have zero views.** Their titles and tags are the first thing to rewrite, using the wording from the listings that are getting traffic.
 
 ## Recommended next action
 
-- Wait, if the shop is under three weeks old. Otherwise rewrite titles around more specific searches.
-- Get the Pinterest batch scheduled. Etsy search alone is a slow start for a shop with no sales history.
+- Peace Lily is getting the most attention. Look at why, and apply the same title and tag pattern to the dead listings.
+- Leave the price alone until there are 200+ views. Changing two variables at once means learning nothing from either.
 
 ---
 
