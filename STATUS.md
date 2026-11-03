@@ -55,6 +55,52 @@ preview is retained as image 2. Verified on all 40 via the API.
 **Price deliberately unchanged** at $4.00, so the next report measures one
 variable. Do not change price until there are 200+ views.
 
+## Google Search Console — done 2 November
+
+| | |
+|---|---|
+| Property | `https://leafnotestudio.github.io/` (URL prefix) |
+| Ownership | **Verified** via HTML file |
+| Sitemap | Submitted, 45 URLs |
+| Status | **"Couldn't fetch", 0 pages discovered** |
+
+**On that status:** Google's own confirmation said "submitted successfully"
+while the table said "Couldn't fetch". The sitemap itself is fine - it
+returns 200 as `application/xml`, parses, lists 45 URLs, all on-domain and
+all resolving. Google simply has not crawled it yet, which is normal in the
+first hours. **Recheck in a day or two.** If it still says "Couldn't fetch"
+after that, something real is wrong and it needs looking at.
+
+The verification token is emitted by `build_site.py`, not committed to the
+site repo by hand. `deploy()` wipes that repo before copying the build over,
+so a hand-placed token would survive until the next deploy and then silently
+un-verify the site.
+
+## Blog traffic
+
+All 203 pins used to link to Etsy, leaving the blog orphaned - Google finds
+pages through links, and nothing pointed at it. The 40 troubleshooting pins
+now link to the matching article instead. That is both a link source and a
+better intent match: a pin asking "why is my Monstera yellowing" landing on
+a $4 product page was the wrong answer to the question.
+
+Water, toxicity and light pins still go straight to Etsy.
+
+## Instagram — parked, deliberately
+
+Account is converted to Business and ready. Stopped at Meta developer
+registration, which requires phone verification. Leo does not want to use
+his own number, VoIP numbers are commonly rejected by Meta, and SMS-burner
+services are a ban vector.
+
+Parked rather than abandoned. If it resumes, the remaining steps are: accept
+the Meta Platform Terms, verify by phone, create the app, add the Instagram
+product, then I do OAuth and a single test post.
+
+Worth re-reading before spending more on it: the channel has a silent-audio
+reach ceiling, an unconfirmed Advanced Access requirement, and a zero-
+follower account. The expected return was never high.
+
 ## Needs Leo
 
 **One thing, and it is optional.** Everything above runs without you.

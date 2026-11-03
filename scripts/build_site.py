@@ -37,6 +37,7 @@ PRIVACY = ROOT / "docs" / "privacy.html"
 OUT = ROOT / "site_build"
 
 SITE = "https://leafnotestudio.github.io"
+GSC_VERIFY_FILE = "googleed03b0ca10e3d81e.html"
 SHOP = "https://www.etsy.com/shop/LeafnoteStudio"
 REPO = "https://github.com/leafnotestudio/leafnotestudio.github.io.git"
 TODAY = date.today().isoformat()
@@ -526,6 +527,16 @@ start going wrong.</p>
     (OUT / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n",
         encoding="utf-8")
+
+    # Google Search Console ownership token.
+    #
+    # This has to be emitted by the build rather than committed once to the
+    # site repo, because deploy() deletes everything in that repo before
+    # copying this directory over it. A file added by hand there would
+    # survive exactly until the next deploy and then silently un-verify the
+    # site -- Search Console drops you without warning when the token goes.
+    (OUT / GSC_VERIFY_FILE).write_text(
+        f"google-site-verification: {GSC_VERIFY_FILE}\n", encoding="utf-8")
 
     print(f"pages : {len(urls)}")
     print(f"output: {OUT}")
