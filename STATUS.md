@@ -59,31 +59,42 @@ variable. Do not change price until there are 200+ views.
 
 **One thing, and it is optional.** Everything above runs without you.
 
-### Instagram — if you want a second traffic channel
+### Instagram — in progress, 2 November
 
-Read the honest version first: Pinterest is a better fit for this product
-than Instagram or TikTok, because every pin carries a clickable link straight
-to the listing and keeps pulling for months. Instagram is link-in-bio only.
-It is worth doing as a second channel, not as a replacement.
+Done already, by me, verified:
 
-What only you can do:
+- Account `leafnotestudio` converted to a **Professional / Business** account
+  (confirmed: settings now show "Professional account - Business tools and
+  controls", which only exists on a professional account)
+- Category set to Shopping & retail
+- **Declined** Instagram's offer to publish contact details on the public
+  profile. It wanted email, phone and street address shown publicly. Nothing
+  requires that, so it is off.
 
-1. Create an Instagram account for Leafnote (and the email it needs).
-2. Switch it to a **Professional → Business** account in settings.
-3. Create a Facebook Page and link it to that Instagram account.
-   Meta's publishing API will not work without the linked Page.
-4. At `developers.facebook.com/apps`, create an app, add the
-   **Instagram** product, and put the App ID and App secret in `.env` as
-   `IG_APP_ID` and `IG_APP_SECRET`.
+**Correction to the earlier version of this file:** it said a Facebook Page
+was required and had you create one. That is wrong. The newer
+"Instagram API with Instagram Login" path explicitly does not require a
+Facebook Page linked to the Instagram account. Skip that step entirely.
 
-Then tell me, and I handle the OAuth, the video generation and the posting.
+**What is blocking, and it is only you:** creating the Meta developer app
+needs a login at developers.facebook.com, and the only options are
+"Continue with Facebook", "Create new account", or a managed Meta account.
+That is a password field, so it is yours.
 
-**The risk, stated up front:** Meta's own docs list Advanced Access as
-required for content publishing and do *not* confirm that an app's own
-owner can publish with Standard Access alone. That is the same shape as the
-Pinterest Trial-tier wall we already hit once. I will test with a single
-post and verify it is publicly visible before building anything on top of
-it, exactly as with the pins.
+1. Sign in (or create an account) at developers.facebook.com
+2. Tell me
+
+Then I create the app, add the Instagram product, pull the App ID and
+secret, run the OAuth, and test with a single post.
+
+**The risk is unchanged:** Meta's docs list Advanced Access for content
+publishing and do not confirm an app's own owner can publish without it.
+Same shape as the Pinterest Trial-tier wall. I will verify one post is
+publicly visible before building anything on top of it.
+
+**And the ceiling, also unchanged:** generated videos are silent, and
+trending audio can only be attached inside the app, not through the API.
+Posting manually with a trending sound will outperform anything automated.
 
 ### TikTok — not automatable, and I checked properly
 
