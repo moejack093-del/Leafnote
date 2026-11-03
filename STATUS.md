@@ -44,10 +44,16 @@ At 8/day the queue of 152 finishes around **20 November 2026**.
 | Net | −$8.00 |
 
 86 views in five days with 43 pins live is the traffic engine working.
-**0 favourites from 86 views is the problem.** A favourite is free, so this
-is not a price objection — it says the listings are not landing. The leading
-suspect is the listing thumbnails: they are flat text cards that, at Etsy's
-grid size, read as grey documents rather than as a product.
+**0 favourites from 86 views was the problem.** A favourite is free, so that
+was not a price objection — the listings were not landing.
+
+**Fixed 2 November:** all 40 listing thumbnails replaced with styled 2000x2000
+mockups. The old previews read as grey worksheets at Etsy's grid size, all 40
+shared one layout, and they did not fill the square tile. The watermarked
+preview is retained as image 2. Verified on all 40 via the API.
+
+**Price deliberately unchanged** at $4.00, so the next report measures one
+variable. Do not change price until there are 200+ views.
 
 ## Needs Leo
 
