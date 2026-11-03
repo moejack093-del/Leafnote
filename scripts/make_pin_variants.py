@@ -39,6 +39,22 @@ OUT = ROOT / "designs" / "pins"
 PINS = OUT / "pinterest"
 
 SHOP = "https://www.etsy.com/shop/LeafnoteStudio"
+BLOG = "https://leafnotestudio.github.io/plants"
+
+# Troubleshooting pins go to the blog article, not the listing.
+#
+# Two reasons. First, intent: someone who searched "why is my monstera
+# yellowing" wants that question answered, and dropping them on a $4
+# product page is the wrong answer -- it is a plausible part of why 86
+# views produced 0 favourites. The article answers it and then offers the
+# card. Second, links: the blog was live, correct and completely orphaned,
+# with all 203 pins pointing at Etsy. Google finds pages through links, so
+# nothing pointing at it meant nothing indexing it.
+#
+# The water/toxic/light pins still go straight to Etsy. Those are product
+# questions, and the extra hop would only cost conversions.
+LINK_TO_BLOG = {"problem"}
+
 W, H = 1000, 1500
 M = 70
 
@@ -330,9 +346,11 @@ def main() -> int:
         for kind, board, title, desc in rows_for(sp):
             name = f"{sp['slug']}-{kind}.png"
             BUILDERS[kind](sp).save(PINS / name, "PNG")
+            dest = (f"{BLOG}/{sp['slug']}/" if kind in LINK_TO_BLOG
+                    else link)
             out.append({"file": f"pinterest/{name}", "board": board,
                         "title": title[:100], "description": desc[:480],
-                        "link": link})
+                        "link": dest})
 
     with open(OUT / "pin_copy_variants.csv", "w", newline="",
               encoding="utf-8") as fh:
